@@ -1,0 +1,137 @@
+# LANGUAGE (LOCALE) translation for WordPress.
+# Copyright (C) 2012 WordPress contributors.
+#  Developer (Oleg Butuzov) <butuzov@made.ua>, 2012.
+# remamber to change
+# 		- plural forms
+# 		- langauge country
+# 		- language
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Debug_Bar_Rewrite_Rules\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-05 00:10+0200\n"
+"PO-Revision-Date: 2013-01-05 09:49+0200\n"
+"Last-Translator: Oleg Butuzov <butuzov@made.com.ua>\n"
+"Language-Team: Developer (Oleg Butuzov) <butuzov@made.ua>\n"
+"Language: LANGUAGE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;_c;_x;_n:1,2;_n_noop:1,2;_nx:1,2;_nx_noop:1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../backup.php:3 ../_templates/view-matched.php:6
+msgid "Current Matched Rule and Query"
+msgstr ""
+
+#: ../debug-bar-rewrite-rules.php:71
+msgid "Rewrite Rules"
+msgstr ""
+
+#: ../debug-bar-rewrite-rules.php:74
+msgid "Debug Permalinks"
+msgstr ""
+
+#: ../debug-bar-rewrite-rules.php:142
+msgid "Stats"
+msgstr ""
+
+#: ../debug-bar-rewrite-rules.php:145
+msgid "Rewrite Rules List"
+msgstr ""
+
+#: ../debug-bar-rewrite-rules.php:148
+msgid "Filters Applied to Rewrite Rules"
+msgstr ""
+
+#: ../debug-bar-rewrite-rules.php:151
+msgid "Actions"
+msgstr ""
+
+#: ../debug-bar-rewrite-rules.php:154
+msgid "Made in Ukraine"
+msgstr ""
+
+#: ../debug-bar-rewrite-rules.php:157
+msgid "Support Project"
+msgstr ""
+
+#: ../debug-bar-rewrite-rules.php:179
+msgid "Flush Rewrite Rules"
+msgstr ""
+
+#: ../debug-bar-rewrite-rules.php:192
+msgid "Permlinks Structure Update"
+msgstr ""
+
+#: ../debug-bar-rewrite-rules.php:387
+msgid "You should anable Permalinks before debug it "
+msgstr ""
+
+#: ../_templates/view-matched.php:10
+msgid "Request"
+msgstr ""
+
+#: ../_templates/view-matched.php:11
+#: ../_templates/debug-bar/rewrite_rules_array.php:28
+msgid "Rule"
+msgstr ""
+
+#: ../_templates/view-matched.php:12
+#: ../_templates/debug-bar/rewrite_rules_array.php:29
+msgid "Match"
+msgstr ""
+
+#: ../_templates/view-matched.php:13
+msgid "Query String"
+msgstr ""
+
+#: ../_templates/view-matched.php:14
+msgid "Query Vars"
+msgstr ""
+
+#: ../_templates/debug-bar/rewrite_rules_array.php:3
+msgid "Rewrite Rules Array"
+msgstr ""
+
+#: ../_templates/debug-bar/rewrite_rules_array.php:41
+msgid "Permalinks not aviable"
+msgstr ""
+
+#: ../_templates/debug-bar/rewrite_rules_array.php:53
+msgid "Matches"
+msgstr ""
+
+#: ../_templates/debug-bar/stats.php:1
+msgid "Total Rewrite Rules"
+msgstr ""
+
+#: ../_templates/debug-bar/stats.php:5
+msgid "Total Rewrite Rules Filters"
+msgstr ""
+
+#: ../_templates/debug-bar/wp_filters.php:4
+msgid "WP Rewrite Rules Filters"
+msgstr ""
+
+#: ../_templates/debug-bar/wp_filters.php:10
+msgid "Hook"
+msgstr ""
+
+#: ../_templates/debug-bar/wp_filters.php:11
+msgid "Priority"
+msgstr ""
+
+#: ../_templates/debug-bar/wp_filters.php:12
+msgid "Callback Type"
+msgstr ""
+
+#: ../_templates/debug-bar/wp_filters.php:13
+msgid "Callback"
+msgstr ""
