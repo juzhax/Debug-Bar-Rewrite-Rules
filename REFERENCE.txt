@@ -1,3 +1,0 @@
-http://wordpress.org/extend/plugins/monkeyman-rewrite-analyzer/
-http://wordpress.org/extend/plugins/rewrite-rules-inspector/
-http://wordpress.stackexchange.com/questions/3606/a-tool-to-analyze-rewrite-rules
