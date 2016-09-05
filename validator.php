@@ -28,24 +28,24 @@ if ( function_exists( 'filter_input_array' ) ) {
 }
 
 
-if ( ! empty( $input['rules'] ) && is_array( $input['rules'] ) && !empty( $input['search'] ) ) {
+if ( ! empty( $input['rules'] ) && is_array( $input['rules'] ) && ! empty( $input['search'] ) ) {
 
 	$search = trim( $input['search'] );
 	$search_u = urldecode( $search );
 
 	foreach ( $input['rules'] as $k => $rule ) {
 
-		$regexp = sprintf( '#^%s#', $rule['rule'] ) ;
+		$regexp = sprintf( '#^%s#', $rule['rule'] );
 
 
 		if ( preg_match( $regexp, $search, $matches ) || preg_match( $regexp, $search_u, $matches ) ) {
 
 			// Trim the query of everything up to the '?'.
-			$query = preg_replace( "!^.+\?!", '', $rule['match'] );
+			$query = preg_replace( '!^.+\?!', '', $rule['match'] );
 
 			foreach ( $matches as $_k => $_i ) {
-				if ( strpos( $query, '$matches['.$_k.']') !== false ) {
-					$query = str_replace('$matches['.$_k.']', $_i, $query );
+				if ( false !== strpos( $query, '$matches['.$_k.']' ) ) {
+					$query = str_replace( '$matches[' . $_k . ']', $_i, $query );
 				}
 			}
 
@@ -69,10 +69,17 @@ if ( ! empty( $input['rules'] ) && is_array( $input['rules'] ) && !empty( $input
 	}
 }
 
+if ( ! function_exists( 'sanitize' ) ) {
 
+	/**
+	 * Simple deep Stripslashes function.
+	 *
+	 * @param  array $value Incoming filter values.
+	 * @return array        Filtred values.
+	 */
 	function sanitize( $value ) {
 		if ( is_array( $value ) ) {
-			$value = array_map( 'sanitize', $value);
+			$value = array_map( 'sanitize', $value );
 		} elseif ( is_object( $value ) ) {
 			$vars = get_object_vars( $value );
 			foreach ( $vars as $key => $data ) {
@@ -81,10 +88,11 @@ if ( ! empty( $input['rules'] ) && is_array( $input['rules'] ) && !empty( $input
 		} elseif ( is_string( $value ) ) {
 			$value = stripslashes( $value );
 		}
-
 		return $value;
 	}
+}
 
 
-	header('Content-type: application/json');
-	die( json_encode( $input ) );
+
+header( 'Content-type: application/json' );
+die( json_encode( $input ) );
