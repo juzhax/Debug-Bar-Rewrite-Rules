@@ -4,7 +4,7 @@
  *
  * @package     WordPress\Plugins\Debug Bar Rewrite Rules\Regexp Rules validator.
  * @author      Oleg Butuzov
- * @link        https://github.com/butuzov/debug-bar-rewrite-rules
+ * @link        https://github.com/butuzov/wp-debug-bar-rewrite-rules
  * @version     0.2
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  *
@@ -26,8 +26,6 @@ if ( function_exists( 'filter_input_array' ) ) {
 } else {
 	$input = array_map( 'sanitize' , $_POST ); // input var, CSRF.
 }
-
-
 
 
 if ( ! empty( $input['rules'] ) && is_array( $input['rules'] ) && !empty( $input['search'] ) ) {

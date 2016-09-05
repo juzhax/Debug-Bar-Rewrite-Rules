@@ -4,7 +4,7 @@
  *
  * @package     WordPress\Plugins\Debug Bar Rewrite Rules\Stats Template.
  * @author      Oleg Butuzov
- * @link        https://github.com/butuzov/debug-bar-rewrite-rules
+ * @link        https://github.com/butuzov/wp-debug-bar-rewrite-rules
  * @version     0.2
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  *
@@ -30,7 +30,7 @@
 		<i><?php echo esc_html( $data['count_filters_hooked'] ); ?></i>
 	</h2>
 	<?php } ?>
-	
+
 	<a href="#"><?php esc_html_e( 'Flush Rewrite Rules', 'debug-bar-rewrite-rules' ); ?><i class="spinner"></i></a>
 	<div class="clear"></div>
 </div>

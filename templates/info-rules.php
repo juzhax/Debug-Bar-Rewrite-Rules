@@ -4,7 +4,7 @@
  *
  * @package     WordPress\Plugins\Debug Bar Rewrite Rules\Rewrite Rules List Template.
  * @author      Oleg Butuzov
- * @link        https://github.com/butuzov/debug-bar-rewrite-rules
+ * @link        https://github.com/butuzov/wp-debug-bar-rewrite-rules
  * @version     0.2
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  *
