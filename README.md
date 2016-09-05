@@ -8,7 +8,7 @@ Debug Bar Rewrite Rules adds a new panel to Debug Bar that displays information 
 * Donate Link: http://wordpress.org
 * Requires at least: 3.4
 * Tested up to: 4.6
-* Stable tag: 0.2
+* Stable tag: trunk
 * License: [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html) GPLv2 or later
 
 
