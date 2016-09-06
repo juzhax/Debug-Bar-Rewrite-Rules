@@ -10,7 +10,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:	Debug Bar Rewrite Rules
- * Plugin URI:	http://wordpress.org/extend/plugins/debug-bar-rewrite-rules/
+ * Plugin URI:	https://github.com/butuzov/wp-debug-bar-rewrite-rules
  * Description:	Debug Bar Rewrite Rules helps to debug WP Rewrite Rules with and without of the help of the Debug Bar.
  * Version:     0.2
  * Author:      Oleg Butuzov
