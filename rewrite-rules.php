@@ -312,6 +312,8 @@ class UA_Made_Rewrite_Rules {
 		$stats = get_option( 'debug_bar_rewrite_rules_filters_list' );
 		$data = array( 'filters' => array() );
 
+		$stats['list'] = is_array( $stats['list'] ) && ! empty( $stats['list'] ) ? $stats['list'] : array();
+
 		foreach ( $stats['list'] as $filter ) {
 
 			$data['filters'][ $filter ] = array( 'rowcount' => 0 , 'filters' => array() );
