@@ -4,7 +4,7 @@ Donate Link: http://wordpress.org
 Tags: debug bar, rewrite rules
 Requires at least: 3.4
 Tested up to: 4.6
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,3 +29,13 @@ Ability to search in rules with highlighting matches.
 1. Debug Bar Rewrite Rules Panel UI with a example data.
 2. Searching in rules list alongside with filtering and highlighting occurrences.
 3. Testing url for matches - show  matched rules and actual matches.
+
+== Changelog ==
+
+= 0.3 =
+* [ui] UI Change - Domain input box width calculated with JS
+* [bugfix] - e.preventDefault()
+* [bugfix] - Double check for empty array in filters UI
+
+= 0.2 =
+* Code refactored from version 0.1
