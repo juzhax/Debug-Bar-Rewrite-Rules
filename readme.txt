@@ -29,3 +29,13 @@ Ability to search in rules with highlighting matches.
 1. Debug Bar Rewrite Rules Panel UI with a example data.
 2. Searching in rules list alongside with filtering and highlighting occurrences.
 3. Testing url for matches - show  matched rules and actual matches.
+
+== Changelog ==
+
+= 0.3 =
+* [ui] UI Change - Domain input box width calculated with JS
+* [bugfix] - e.preventDefault()
+* [bugfix] - Double check for empty array in filters UI
+
+= 0.2 =
+* Code refactored from version 0.1
