@@ -332,12 +332,12 @@ class UA_Made_Rewrite_Rules {
 		}
 
 		$data['l10n'] = array(
-			// Functions
+			// Functions.
 			'function'	=> __( 'Function', 'debug-bar-rewrite-rules' ),
 			'anonymus'	=> __( 'Anonymous lambda function', 'debug-bar-rewrite-rules' ),
 			'closure'	=> __( 'Closure anonymous function', 'debug-bar-rewrite-rules' ),
 
-			// Classes
+			// Classes.
 			'dynamic'	=> __( 'Dynamic method', 'debug-bar-rewrite-rules' ),
 			'static'	=> __( 'Static method', 'debug-bar-rewrite-rules' ),
 		);
