@@ -14,7 +14,9 @@
 
 				// We have only one link in headings seaction.
 				$('.debug-bar-rewrites-urls a').bind('click', function(e) {
-					e.preventDefault;
+
+					e.preventDefault();
+
 					$(this).find('.spinner').css({
 						visibility: 'visible'
 					});
