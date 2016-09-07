@@ -95,13 +95,13 @@
 
 			},
 
-			calc_domain_width : function(){
+			calc_domain_width: function() {
 
-				if ( $('div.filterui input.mono.domain').is(":visible") ) {
-					$('.filterui .url').append('<span class="mono domain">' + $('div.filterui .mono.domain').val()+'</span>');
-					$('div.filterui input.mono.domain').css('width', $('div.filterui span.mono.domain').width() + 3  );
- 					$('div.filterui span.mono.domain').remove();
-					clearInterval( $this.calc_domain_width_timeout );
+				if ($('div.filterui input.mono.domain').is(":visible")) {
+					$('.filterui .url').append('<span class="mono domain">' + $('div.filterui .mono.domain').val() + '</span>');
+					$('div.filterui input.mono.domain').css('width', $('div.filterui span.mono.domain').width() + 3);
+					$('div.filterui span.mono.domain').remove();
+					clearInterval($this.calc_domain_width_timeout);
 					$this.calc_domain_width_timeout = 0;
 				}
 
@@ -113,7 +113,7 @@
 			search: function() {
 
 				// What the width of the domain block?
-				$this.calc_domain_width_timeout = window.setInterval( $this.calc_domain_width, 1000);
+				$this.calc_domain_width_timeout = window.setInterval($this.calc_domain_width, 1000);
 				$this.calc_domain_width();
 
 				$('.mono.matches')
