@@ -27,6 +27,12 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit();
 }
 
+// using DBRR_FILE instead __FILE__ is only once answer if you
+// developing plugin as symlink.
+if ( ! defined( 'DBRR_FILE' ) ) {
+	define( 'DBRR_FILE', $plugin );
+}
+
 
 if ( ! function_exists( 'umdbrr_activate' ) ) {
 
@@ -45,7 +51,7 @@ if ( ! function_exists( 'umdbrr_activate' ) ) {
 	}
 
 	// Registring Activation hook.
-	register_activation_hook( __FILE__, 'umdbrr_activate' );
+	register_activation_hook( DBRR_FILE, 'umdbrr_activate' );
 }
 
 if ( ! function_exists( 'umdbrr_deactivate' ) ) {
@@ -64,7 +70,7 @@ if ( ! function_exists( 'umdbrr_deactivate' ) ) {
 
 	// Deactivation or Uninstall.
 	foreach ( array( 'deactivation', 'uninstall' ) as $hook ) {
-		call_user_func( sprintf( 'register_%s_hook', $hook ), __FILE__, 'umdbrr_deactivate' );
+		call_user_func( sprintf( 'register_%s_hook', $hook ), DBRR_FILE, 'umdbrr_deactivate' );
 	}
 }
 
@@ -232,7 +238,7 @@ class UA_Made_Rewrite_Rules {
 
 			wp_enqueue_style(
 				self::DBRR_NAME ,
-				plugins_url( 'css/' . self::DBRR_NAME . $file_suffix . '.css', __FILE__ ),
+				plugins_url( 'css/' . self::DBRR_NAME . $file_suffix . '.css', DBRR_FILE ),
 				array(),
 				self::DBRR_STYLES_VERSION,
 				'all'
@@ -240,7 +246,7 @@ class UA_Made_Rewrite_Rules {
 
 			wp_register_script(
 				self::DBRR_NAME,
-				plugins_url( 'js/' . self::DBRR_NAME . $file_suffix . '.js', __FILE__ ),
+				plugins_url( 'js/' . self::DBRR_NAME . $file_suffix . '.js', DBRR_FILE),
 				array( 'jquery' ),
 				self::DBRR_SCRIPTS_VERSION,
 				true
@@ -249,7 +255,7 @@ class UA_Made_Rewrite_Rules {
 			wp_localize_script( self::DBRR_NAME, 'debugBarRewriteRules', array(
 				'nonce'     => wp_create_nonce( 'debug-bar-rewrite-rules-nonce' ),
 				'ajaxurl'   => admin_url( 'admin-ajax.php' ),
-				'validator' => plugins_url( 'validator.php', __FILE__ ),
+				'validator' => plugins_url( 'validator.php', DBRR_FILE ),
 				'home'	    => trailingslashit( get_home_url() ),
 				'matches'	=> __( 'Matches', 'debug-bar-rewrite-rules' ),
 			) );
