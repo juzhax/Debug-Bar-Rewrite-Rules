@@ -80,8 +80,8 @@ if ( ! function_exists( 'umdbrr_deactivate' ) ) {
  */
 class UA_Made_Rewrite_Rules {
 
-	const DBRR_STYLES_VERSION = '1.0';
-	const DBRR_SCRIPTS_VERSION = '1.0';
+	private $css = '269a8b4d78a43deb8f62566cd4d6707c';
+ 	private $js = '34b89228a198acde7745ce6808c132bf';
 
 	const DBRR_NAME = 'debug-bar-rewrite-rules';
 
@@ -240,24 +240,24 @@ class UA_Made_Rewrite_Rules {
 				self::DBRR_NAME ,
 				plugins_url( 'css/' . self::DBRR_NAME . $file_suffix . '.css', DBRR_FILE ),
 				array(),
-				self::DBRR_STYLES_VERSION,
+				$this->css,
 				'all'
 			);
 
 			wp_register_script(
 				self::DBRR_NAME,
 				plugins_url( 'js/' . self::DBRR_NAME . $file_suffix . '.js', DBRR_FILE),
-				array( 'jquery' ),
-				self::DBRR_SCRIPTS_VERSION,
+				array( 'jquery', 'underscore' ),
+				$this->js,
 				true
 			);
 
 			wp_localize_script( self::DBRR_NAME, 'debugBarRewriteRules', array(
-				'nonce'     => wp_create_nonce( 'debug-bar-rewrite-rules-nonce' ),
-				'ajaxurl'   => admin_url( 'admin-ajax.php' ),
+				'nonce' => wp_create_nonce( 'debug-bar-rewrite-rules-nonce' ),
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'validator' => plugins_url( 'validator.php', DBRR_FILE ),
-				'home'	    => trailingslashit( get_home_url() ),
-				'matches'	=> __( 'Matches', 'debug-bar-rewrite-rules' ),
+				'home' => trailingslashit( get_home_url() ),
+				'matches' => __( 'Matches', 'debug-bar-rewrite-rules' ),
 			) );
 
 			wp_enqueue_script( self::DBRR_NAME );
