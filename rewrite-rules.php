@@ -344,6 +344,7 @@ class UA_Made_Rewrite_Rules {
 			'closure'	=> __( 'Closure anonymous function', 'debug-bar-rewrite-rules' ),
 
 			// Classes.
+			'invoked'	=> __( 'Callable Object', 'debug-bar-rewrite-rules' ),
 			'dynamic'	=> __( 'Dynamic method', 'debug-bar-rewrite-rules' ),
 			'static'	=> __( 'Static method', 'debug-bar-rewrite-rules' ),
 		);
@@ -520,6 +521,11 @@ class UA_Made_Rewrite_Rules {
 						// Anonymos function call.
 						$type = 'closure';
 						$view = '';
+
+					} elseif ( $is_object && $is_callable ) {
+
+					    $type = 'invoked';
+					    $view = get_class($callback['function']);
 
 					}
 
