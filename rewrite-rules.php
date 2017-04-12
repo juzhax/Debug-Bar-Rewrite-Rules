@@ -460,69 +460,70 @@ class UA_Made_Rewrite_Rules {
 
 		foreach ( $rules as $filter ) {
 
-			if ( ! empty( $wp_filter[ $filter ] ) ) {
-				foreach ( $wp_filter[ $filter ] as $priority => $callbacks ) {
+			if ( empty( $wp_filter[ $filter ] ) ) {
+				continue;
+			}
 
-					// Incrementing counter.
-					$stat['count'] += count( $callbacks );
+			foreach ( $wp_filter[ $filter ] as $priority => $callbacks ) {
 
-					// Going thought callbacks.
-					foreach ( $callbacks as $callback ) {
+				// Incrementing counter.
+				$stat['count'] += count( $callbacks );
 
-						$is_string = is_string( $callback['function'] );
-						$is_array  = is_array( $callback['function'] );
-						$is_object = is_object( $callback['function'] );
+				// Going thought callbacks.
+				foreach ( $callbacks as $callback ) {
 
-						$is_lambda = $is_string && strpos( $callback['function'], 'lambda_' ) !== false;
-						$is_callable = is_callable( $callback['function'] );
+					$is_string = is_string( $callback['function'] );
+					$is_array  = is_array( $callback['function'] );
+					$is_object = is_object( $callback['function'] );
 
-						$function_exists = $is_string && function_exists( $callback['function'] );
+					$is_lambda = $is_string && strpos( $callback['function'], 'lambda_' ) !== false;
+					$is_callable = is_callable( $callback['function'] );
 
-						if ( $is_array ) {
-							if ( is_object( $callback['function'][0] ) ) {
+					$function_exists = $is_string && function_exists( $callback['function'] );
 
-								// Method of class object called.
-								$types  = array( 'object', '->' );
-								$class = '$' . get_class( $callback['function'][0] );
+					if ( $is_array ) {
+						if ( is_object( $callback['function'][0] ) ) {
 
-							} else {
+							// Method of class object called.
+							$types  = array( 'object', '->' );
+							$class = '$' . get_class( $callback['function'][0] );
 
-								// Static method of class called.
-								$types  = array( 'static', '::' );
-								$class = $callback['function'][0];
+						} else {
 
-							}
+							// Static method of class called.
+							$types  = array( 'static', '::' );
+							$class = $callback['function'][0];
 
-							$method = $callback['function'][1] . '()';
-							$type = 'static' === array_shift( $types ) ? 'static' : 'dynamic';
-							$view = sprintf( '%s%s%s', $class, array_shift( $types ), $method );
-
-						} elseif ( $is_string && $is_callable && $function_exists ) {
-
-							if ( $is_lambda ) {
-
-								// Lambda function call.
-								$type = 'anonymus';
-								$view  = '';
-
-							} else {
-
-								// Real Function Call.
-								$type = 'function' ;
-								$view = $callback['function'];
-							}
-
-						} elseif ( $is_object && 'Closure' === get_class( $callback['function'] ) ) {
-
-							// Anonymos function call.
-							$type = 'closure';
-							$view = '';
 						}
 
+						$method = $callback['function'][1] . '()';
+						$type = 'static' === array_shift( $types ) ? 'static' : 'dynamic';
+						$view = sprintf( '%s%s%s', $class, array_shift( $types ), $method );
 
-						$stat['details'][ $filter ][ $priority ][] = array( $type, $view );
+					} elseif ( $is_string && $is_callable && $function_exists ) {
+
+						if ( $is_lambda ) {
+
+							// Lambda function call.
+							$type = 'anonymus';
+							$view  = '';
+
+						} else {
+
+							// Real Function Call.
+							$type = 'function' ;
+							$view = $callback['function'];
+						}
+
+					} elseif ( $is_object && 'Closure' === get_class( $callback['function'] ) ) {
+
+						// Anonymos function call.
+						$type = 'closure';
+						$view = '';
 
 					}
+
+					$stat['details'][ $filter ][ $priority ][] = array( $type, $view );
 				}
 			}
 		}
