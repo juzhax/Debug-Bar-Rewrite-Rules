@@ -141,7 +141,7 @@ class UA_Made_Rewrite_Rules {
 		// Setting up a tracker.
 		add_action( 'generate_rewrite_rules', array( $this, 'track_generate_rewrite_rules' ) );
 
-		// Adding panel to Debug Bar
+		// Adding panel to Debug Bar.
 		add_filter( 'debug_bar_panels', array( $this, 'debug_bar_panel' ) );
 
 		// Adding init method.
@@ -173,16 +173,24 @@ class UA_Made_Rewrite_Rules {
 
 			// Localization loading.
 			// That's sad but `load_plugin_textdomain` doesn't looks like it working, so we use other way.
-			load_textdomain( self::DBRR_NAME, plugin_dir_path( __FILE__ ) . 'languages/' . self::DBRR_NAME . '-' . get_locale() . '.mo' );
+
+			$file_path = plugin_dir_path( __FILE__ ) . 'languages/' .
+				$this::NAME . '-' . get_locale() . '.mo';
+
+			load_textdomain( $this::NAME, $file_path );
 
 			// Translations for title/panel title and "page title".
-			$this->title   = __( 'Rewrite Rules', 'debug-bar-rewrite-rules' );
-			$this->pagetitle = __( 'WordPress Rewrite Rules Inspection', 'debug-bar-rewrite-rules' );
+			$this->title = __( 'Rewrite Rules', 'debug-bar-rewrite-rules' );
+			$this->pagetitle = __( 'WordPress Rewrite Rules Inspection',
+				'debug-bar-rewrite-rules' );
 		}
 	}
 
 	/**
-	 * Debug Bar Rewrite Rules as WordPress Admin Page (in case if debug bar not available).
+	 * Admin Menu Action Hook.
+	 *
+	 * Debug Bar Rewrite Rules as WordPress Admin Page
+	 * (in case if debug bar not available).
 	 *
 	 * @return void
 	 */
@@ -192,7 +200,10 @@ class UA_Made_Rewrite_Rules {
 
 
 	/**
-	 * A Wordpress admin tool page 'view'.
+	 * View for Admin Page.
+	 *
+	 * A Wordpress admin tool page 'view', in case if debug bar not available,
+	 * and we forced to use standard wp-admin page.
 	 *
 	 * @return void
 	 */
@@ -210,7 +221,7 @@ class UA_Made_Rewrite_Rules {
 	/**
 	 * Adds panel, as defined in the included class, to Debug Bar.
 	 *
-	 * @param array $panels Existing debug bar panels.
+	 * @param  array $panels Array of Debug_Bar_Panel objects.
 	 *
 	 * @return array
 	 */
@@ -221,9 +232,9 @@ class UA_Made_Rewrite_Rules {
 
 		// Initializing Panel.
 		if ( ! class_exists( 'Debug_Bar_Rewrite_Rules_Panel' ) ) {
-			require_once   'debug-bar.php';
+			require_once 'debug-bar.php';
 
-			add_action( 'wp_enqueue_scripts', array( $this, 'assets') );
+			add_action( 'wp_enqueue_scripts', array( $this, 'assets' ) );
 
 			$panels[] = new Debug_Bar_Rewrite_Rules_Panel( $this );
 		}
@@ -233,12 +244,14 @@ class UA_Made_Rewrite_Rules {
 
 
 	/**
-	 * Loading assets
+	 * Assets
 	 *
-	 * Load styles and scripts for backend and frontend.
+	 * Load styles and scripts for back- and front-end.
 	 *
-	 * @param  string $hook_suffix The dynamic portion of the hook, `$hook_suffix`, refers to the hook suffix for the admin page.
+	 * will work for both debug bar and standalone mode.
 	 *
+	 * @param  string $hook_suffix The dynamic portion of the hook, `$hook_suffix` -
+	 *                             refers to the hook suffix for the admin page.
 	 * @return void
 	 */
 	function assets( $hook_suffix = '' ) {
@@ -247,25 +260,18 @@ class UA_Made_Rewrite_Rules {
 
 		if ( ( ! empty( $this->hook ) && $hook_suffix === $this->hook ) || $is_debug_bar ) {
 
-			$file_suffix = ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min' );
+			$suffix = ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min' );
 
-			wp_enqueue_style(
-				self::DBRR_NAME ,
-				plugins_url( 'css/' . self::DBRR_NAME . $file_suffix . '.css', DBRR_FILE ),
-				array(),
-				$this->css,
-				'all'
-			);
+			// Style Enqueue.
+			$style_url = plugins_url( 'css/' . $this::NAME . $suffix . '.css', DBRR_FILE );
+			wp_enqueue_style( $this::NAME, $style_url, false, $this->css, 'all' );
 
-			wp_register_script(
-				self::DBRR_NAME,
-				plugins_url( 'js/' . self::DBRR_NAME . $file_suffix . '.js', DBRR_FILE),
-				array( 'jquery', 'underscore' ),
-				$this->js,
-				true
-			);
+			// Script will be registread and enqueued to run with additional data.
+			$script_url = plugins_url( 'js/' . $this::NAME . $suffix . '.js', DBRR_FILE );
+			$dependencies = array( 'jquery', 'underscore' );
+			wp_register_script( $this::NAME, $script_url, $dependencies, $this->js, true );
 
-			wp_localize_script( self::DBRR_NAME, 'debugBarRewriteRules', array(
+			wp_localize_script( $this::NAME, 'debugBarRewriteRules', array(
 				'nonce' => wp_create_nonce( 'debug-bar-rewrite-rules-nonce' ),
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'validator' => plugins_url( 'validator.php', DBRR_FILE ),
@@ -273,18 +279,19 @@ class UA_Made_Rewrite_Rules {
 				'matches' => __( 'Matches', 'debug-bar-rewrite-rules' ),
 			) );
 
-			wp_enqueue_script( self::DBRR_NAME );
-
+			wp_enqueue_script( $this::NAME );
 		}
 	}
 
 	/**
-	 * Template functionality.
+	 * Simple Template imlementation.
 	 *
-	 * This is a simple implementation of template functionality for WordPress.
+	 * This is a simple implementation of template
+	 * functionality for WordPress.
 	 *
-	 * @param string $template	Template location in ffile system.
-	 * @param array  $data 		Array of additional parameters used in tempalte.
+	 * @param string $template  Template location in file system.
+	 * @param array  $data      Array of additional parameters used in tempalte.
+	 * @return string           HTML contents.
 	 */
 	function template( $template, $data = array() ) {
 
@@ -292,12 +299,15 @@ class UA_Made_Rewrite_Rules {
 
 		if ( ! file_exists( __DIR__ . '/' . $template ) && WP_DEBUG === true ) {
 
-			$data = pathinfo( $template );
+			$data = pathinfo( $template ); // possible path disclosure, but it
+			                               // not suppose to run elsewhere then admin part.
+
 			$content = sprintf( '<h2>Template <em  class="debug">%s</em> not found at <em class="debug">%s</em></h2>', $data['basename'], $data['dirname'] );
 
 		} elseif ( file_exists( __DIR__ . '/' . $template ) ) {
 
 			ob_start();
+			// "Template" "render"
 			include __DIR__ . '/' . $template;
 			$content = ob_get_contents();
 			ob_end_clean();
@@ -331,12 +341,17 @@ class UA_Made_Rewrite_Rules {
 		$stats = get_option( 'debug_bar_rewrite_rules_filters_list' );
 		$data = array( 'filters' => array() );
 
-		$stats['list'] = is_array( $stats['list'] ) && ! empty( $stats['list'] ) ? $stats['list'] : array();
+		$stats['list'] = is_array( $stats['list'] ) && ! empty( $stats['list'] )
+			? $stats['list'] : array();
 
+
+		// Sorting the list of filters.
 		foreach ( $stats['list'] as $filter ) {
 
-			$data['filters'][ $filter ] = array( 'rowcount' => 0 , 'filters' => array() );
-
+			$data['filters'][ $filter ] = array(
+				'rowcount' => 0,
+				'filters' => array()
+			);
 
 			if ( empty( $stats['details'][ $filter ] ) ) {
 				$data['filters'][ $filter ]['rowcount']++;
@@ -351,6 +366,7 @@ class UA_Made_Rewrite_Rules {
 		}
 
 		$data['l10n'] = array(
+
 			// Functions.
 			'function'	=> __( 'Function', 'debug-bar-rewrite-rules' ),
 			'anonymus'	=> __( 'Anonymous lambda function', 'debug-bar-rewrite-rules' ),
@@ -376,9 +392,9 @@ class UA_Made_Rewrite_Rules {
 		$rules = get_option( 'rewrite_rules' );
 
 		$data = array(
-			'count_rules'			=> is_array( $rules ) ? count( $rules ) : 0,
-			'count_filters'			=> count( $stats['list'] ),
-			'count_filters_hooked'	=> empty( $stats['details'] ) ? 0 : $stats['count'],
+			'count_rules' => is_array( $rules ) ? count( $rules ) : 0,
+			'count_filters' => count( $stats['list'] ),
+			'count_filters_hooked' => empty( $stats['details'] ) ? 0 : $stats['count'],
 		);
 
 		return $this->template( '/templates/info-stats.php', $data ); // WPCS: XSS OK.
@@ -392,28 +408,24 @@ class UA_Made_Rewrite_Rules {
 	function ajax() {
 
 		$return = array();
+		$nonce  = filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING );
 
-		if ( function_exists( 'filter_input' ) ) {
-			$nonce = filter_input( INPUT_POST, 'nonce' );
-		} else {
-			$inputs = array_map( 'sanitize_text_field' , array_map( 'wp_unslash' , $_POST ) ); // input var, CSRF.
-			$nonce = ! empty( $inputs['nonce'] ) ? $inputs['nonce'] : null ;
+		$can_manage_options = current_user_can( 'manage_options' );
+		$has_valid_nonce = wp_verify_nonce( $nonce, 'debug-bar-rewrite-rules-nonce' );
+
+		if ( ! $can_manage_options || ! $has_valid_nonce ) {
+			wp_die( wp_json_encode( $return ) );
 		}
 
-		if ( ! current_user_can( 'manage_options' ) || ! wp_verify_nonce( $nonce, 'debug-bar-rewrite-rules-nonce' ) ) {
-			wp_die( wp_json_encode( array() ) );
-		}
-
-		global $wp_rewrite;
-		$wp_rewrite->flush_rules();
+		flush_rewrite_rules( true );
 
 		$stats = get_option( 'debug_bar_rewrite_rules_filters_list' );
 
 		$results = array(
 			'filters' => $this->filters(),
 			'rules' => $this->rules(),
-			'count_rules'	 => count( get_option( 'rewrite_rules' ) ),
-			'count_filters'  => count( $stats['list'] ),
+			'count_rules' => count( get_option( 'rewrite_rules' ) ),
+			'count_filters' => count( $stats['list'] ),
 			'count_filters_hooked' => empty( $stats['details'] ) ? 0 : $stats['count'],
 		);
 
@@ -422,15 +434,13 @@ class UA_Made_Rewrite_Rules {
 	}
 
 
-	// ************************************************************************************************************/
-	// Tracking Filters
-	// ************************************************************************************************************/
-
-
 	/**
 	 * Tracking all alterations of the rewrites rules by tracking all filters.
 	 *
-	 * @param object WP_Rewrite $wp_rewrite  WP Rewrite Object.
+	 * Unfortunatelly we can't track `add_rewrite_rule` function call due a
+	 * luck of filters/actions in it.
+	 *
+	 * @param  WP_Rewrite   $wp_rewrite  WP_Rewrite Object.
 	 * @return void
 	 */
 	function track_generate_rewrite_rules( $wp_rewrite ) {
@@ -487,7 +497,7 @@ class UA_Made_Rewrite_Rules {
 				foreach ( $callbacks as $callback ) {
 
 					$is_string = is_string( $callback['function'] );
-					$is_array  = is_array( $callback['function'] );
+					$is_array = is_array( $callback['function'] );
 					$is_object = is_object( $callback['function'] );
 
 					$is_lambda = $is_string && strpos( $callback['function'], 'lambda_' ) !== false;
@@ -496,6 +506,7 @@ class UA_Made_Rewrite_Rules {
 					$function_exists = $is_string && function_exists( $callback['function'] );
 
 					if ( $is_array ) {
+
 						if ( is_object( $callback['function'][0] ) ) {
 
 							// Method of class object called.
@@ -515,31 +526,27 @@ class UA_Made_Rewrite_Rules {
 						$view = sprintf( '%s%s%s', $class, array_shift( $types ), $method );
 
 					} elseif ( $is_string && $is_callable && $function_exists ) {
-
 						if ( $is_lambda ) {
 
 							// Lambda function call.
 							$type = 'anonymus';
 							$view  = '';
-
 						} else {
 
 							// Real Function Call.
 							$type = 'function' ;
 							$view = $callback['function'];
 						}
-
 					} elseif ( $is_object && 'Closure' === get_class( $callback['function'] ) ) {
 
 						// Anonymos function call.
 						$type = 'closure';
 						$view = '';
-
 					} elseif ( $is_object && $is_callable ) {
 
+						// Callable Object (Instance of Class with __invoke method).
 					    $type = 'invoked';
-					    $view = get_class($callback['function']);
-
+					    $view = get_class( $callback['function'] );
 					}
 
 					$stat['details'][ $filter ][ $priority ][] = array( $type, $view );
@@ -548,7 +555,6 @@ class UA_Made_Rewrite_Rules {
 		}
 
 		update_option( 'debug_bar_rewrite_rules_filters_list', $stat );
-		return $wp_rewrite;
 	}
 }
 
