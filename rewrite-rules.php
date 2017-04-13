@@ -29,8 +29,10 @@ if ( ! function_exists( 'add_action' ) ) {
 
 // using DBRR_FILE instead __FILE__ is only once answer if you
 // developing plugin as symlink.
-if ( ! defined( 'DBRR_FILE' ) ) {
+if ( ! defined( 'DBRR_FILE' ) && isset( $plugin ) ) {
 	define( 'DBRR_FILE', $plugin );
+} else {
+	define( 'DBRR_FILE', __FILE__ );
 }
 
 
