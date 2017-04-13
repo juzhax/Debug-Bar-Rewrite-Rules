@@ -26,9 +26,10 @@ Once installed, you will have access to the following information:
 
 == Screenshots ==
 
-1. Debug Bar Rewrite Rules Panel UI with a example data.
+1. Testing url for matches - show  matched rules and actual matches.
 2. Searching in rules list alongside with filtering and highlighting occurrences.
-3. Testing url for matches - show  matched rules and actual matches.
+3. Interface of Rewrite Rules Inspector without Debug Bar.
+
 
 == Changelog ==
 
