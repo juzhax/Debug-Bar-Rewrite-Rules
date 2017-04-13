@@ -87,7 +87,7 @@ var DebugBarRewriteRules_App = (function($) {
 
 				// do nothing if it's an arrow key
 				// Ignoting all arrow keys.
-				if ([32, 37, 38, 39, 40].indexOf(code) > -1) {
+				if ([32, 37, 38, 39, 40, 91, 17].indexOf(code) > -1) {
 					return false;
 				}
 
@@ -416,6 +416,9 @@ var DebugBarRewriteRules_App = (function($) {
 							$($_el).find('.spinner').css({
 								visibility: 'hidden'
 							});
+
+							// Deelting
+							delete $this.rules;
 
 							// Replacing Tables
 							$.each(['rules', 'filters'], function(index, value) {

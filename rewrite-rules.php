@@ -80,10 +80,23 @@ if ( ! function_exists( 'umdbrr_deactivate' ) ) {
  */
 class UA_Made_Rewrite_Rules {
 
-	private $css = '269a8b4d78a43deb8f62566cd4d6707c';
- 	private $js = '34b89228a198acde7745ce6808c132bf';
+	/**
+	 * Part of md5 hash for the css/debug-bar-rewrite-rules.min.css,
+	 * used as version of the file.
+	 *
+	 * @var string
+	 */
+	private $css = '269a8b4d78';
 
-	const DBRR_NAME = 'debug-bar-rewrite-rules';
+	/**
+	 * Part of md5 hash for the js/debug-bar-rewrite-rules.min.js,
+	 * used as version of the file.
+	 *
+	 * @var string
+	 */
+	private $js = '191f074e35b';
+
+	const NAME = 'debug-bar-rewrite-rules';
 
 	/**
 	 * Single instance
