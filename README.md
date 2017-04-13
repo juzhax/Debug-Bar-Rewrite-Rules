@@ -12,7 +12,7 @@ Debug Bar Rewrite Rules adds information about Rewrite Rules (changed via filter
 * License: [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html) GPLv2 or later
 
 
-![Debug Bar Rewrite Rule General Interface](screenshot-1.png)
+![Debug Bar Rewrite Rule General Interface](screenshot_1.png)
 
 Debug Bar Transients adds information about WordPress Transients to a new panel in the Debug Bar. This plugin is an extension for [Debug Bar](http://wordpress.org/extend/plugins/debug-bar/), but it is also can work in standalone mode as admin tools page.
 
