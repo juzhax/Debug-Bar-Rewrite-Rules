@@ -4,15 +4,15 @@
  *
  * @package     WordPress\Plugins\Debug Bar Rewrite Rules
  * @author      Oleg Butuzov
- * @link        https://github.com/butuzov/wp-debug-bar-rewrite-rules
- * @version     0.3
+ * @link        https://github.com/butuzov/Debug-Bar-Rewrite-Rules
+ * @version     0.4
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  *
  * @wordpress-plugin
  * Plugin Name:	Debug Bar Rewrite Rules
  * Plugin URI:	https://github.com/butuzov/wp-debug-bar-rewrite-rules
  * Description:	Debug Bar Rewrite Rules helps to debug WP Rewrite Rules with and without of the help of the Debug Bar.
- * Version:     0.3
+ * Version:     0.4
  * Author:      Oleg Butuzov
  * Author URI:  https://github.com/butuzov
  * Depends:     Debug Bar

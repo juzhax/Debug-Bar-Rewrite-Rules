@@ -1,14 +1,14 @@
 # Debug Bar Rewrite Rules
 
-Debug Bar Rewrite Rules adds a new panel to Debug Bar that displays information about WordPress Rewrites Rules (if used).
+Debug Bar Rewrite Rules adds information about Rewrite Rules (changed via filters) to a new panel in the Debug Bar. This plugin is an extension for [Debug Bar](http://wordpress.org/extend/plugins/debug-bar/), but it is also can work in standalone mode (as admin tools page).
 
 -----
 
-* Contributors: butuzov
+* Contributors: @butuzov
 * Donate Link: http://wordpress.org
 * Requires at least: 3.4
-* Tested up to: 4.6
-* Stable tag: trunk
+* Tested up to: 4.7
+* Stable tag: 0.4
 * License: [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html) GPLv2 or later
 
 
