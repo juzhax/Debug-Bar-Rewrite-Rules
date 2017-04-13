@@ -416,6 +416,9 @@ var DebugBarRewriteRules_App = (function($) {
 								visibility: 'hidden'
 							});
 
+							// Deelting
+							delete  $this.rules;
+
 							// Replacing Tables
 							$.each( [ 'rules', 'filters' ],  function( index, value ) {
 								if ( typeof data[value] != "underfined"
