@@ -1,5 +1,7 @@
+## Changelog
+
 ### 0.4
-* [improvement] - Added track for __invoke methods (callable objects)
+* [improvement] - Added track for PHP `__invoke` methods (callable objects)
 * [bugfix] - Added fix for plugin loaded via symlinks
 * [code refactoring] - Code of PHP and JS refactored.
 

@@ -1,0 +1,5 @@
+phpcs.xml export-ignore
+.editorconfig export-ignore
+.gitattributes export-ignore
+js/sources export-ignore
+css/sources export-ignore
