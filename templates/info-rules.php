@@ -42,7 +42,7 @@
 					</tr>
 				<?php } ?>
 			<?php } else { ?>
-				<tr><td colspan="2"><?php esc_html_e('Permalinks not aviable', 'debug-bar-rewrite-rules' ); ?></td></tr>
+				<tr><td colspan="2"><?php esc_html_e('Permalinks not available', 'debug-bar-rewrite-rules' ); ?></td></tr>
 			<?php } ?>
 		</tbody>
 	</table>
