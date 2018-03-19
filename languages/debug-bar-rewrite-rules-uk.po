@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Debug Bar Rewrite Rules\n"
-"POT-Creation-Date: 2016-09-05 18:13+0200\n"
-"PO-Revision-Date: 2016-09-05 18:13+0200\n"
+"POT-Creation-Date: 2018-03-20 00:11+0200\n"
+"PO-Revision-Date: 2018-03-20 00:30+0200\n"
 "Last-Translator: Oleg Butuzov <butuzov@made.ua>\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -21,35 +21,39 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: rewrite-rules.php:160
+#: rewrite-rules.php:190
 msgid "Rewrite Rules"
-msgstr "Правила Перепису"
+msgstr "Правила Перезапису"
 
-#: rewrite-rules.php:161
-msgid "WordPress Rewrite Rules Inspection"
-msgstr "Інспекція правил перепису WordPress"
+#: rewrite-rules.php:191
+msgid "WordPress Rewrite Rules Inspector"
+msgstr "Інспектор правил перезапису URL WordPress’у"
 
-#: rewrite-rules.php:254
+#: rewrite-rules.php:285
 msgid "Matches"
 msgstr "Збіги"
 
-#: rewrite-rules.php:334
+#: rewrite-rules.php:372
 msgid "Function"
 msgstr "Функція"
 
-#: rewrite-rules.php:335
+#: rewrite-rules.php:373
 msgid "Anonymous lambda function"
 msgstr "Анонімна лямбда-функція"
 
-#: rewrite-rules.php:336
+#: rewrite-rules.php:374
 msgid "Closure anonymous function"
-msgstr "Зaмикаюча (closure) Анонімна функція"
+msgstr "Зaмкнена (closure) Анонімна функція"
 
-#: rewrite-rules.php:339
+#: rewrite-rules.php:377
+msgid "Callable Object"
+msgstr "Викличний (Callable) об’єкт"
+
+#: rewrite-rules.php:378
 msgid "Dynamic method"
 msgstr "Метод об'єкта класа"
 
-#: rewrite-rules.php:340
+#: rewrite-rules.php:379
 msgid "Static method"
 msgstr "Статичний метод"
 
@@ -79,11 +83,11 @@ msgstr "Жодний фільтр не використовує цю “зачі
 
 #: templates/info-rules.php:14
 msgid "WP Rewrite Rules List"
-msgstr "Перелік Правил Перепису WordPress’у"
+msgstr "Перелік Правил Перезапису WordPress’а"
 
 #: templates/info-rules.php:24
 msgid "Filter Rewrite Rules List"
-msgstr "Фільтрувати Правила Перепису"
+msgstr "Фільтрувати Правила Перезапису"
 
 #: templates/info-rules.php:32
 msgid "Rule"
@@ -94,8 +98,8 @@ msgid "Match"
 msgstr "Збіг"
 
 #: templates/info-rules.php:45
-msgid "Permalinks not aviable"
-msgstr "Постійні посилання не увімкнено"
+msgid "Permalinks not available"
+msgstr "Постійні посилання не доступні"
 
 #: templates/info-stats.php:17
 msgid "Total Rewrite Rules"
@@ -111,14 +115,14 @@ msgstr "ФІльтрів використано"
 
 #: templates/info-stats.php:34
 msgid "Flush Rewrite Rules"
-msgstr "Очистити Правила Перепису"
+msgstr "Очистити Правила Перезапису"
 
 #. Plugin Name of the plugin/theme
 msgid "Debug Bar Rewrite Rules"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://wordpress.org/extend/plugins/debug-bar-rewrite-rules/"
+msgid "https://github.com/butuzov/wp-debug-bar-rewrite-rules"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -129,8 +133,14 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "Oleg Butuzov"
-msgstr ""
+msgstr "Олег Бутузов"
 
 #. Author URI of the plugin/theme
 msgid "https://github.com/butuzov"
 msgstr ""
+
+#~ msgid "WordPress Rewrite Rules Inspection"
+#~ msgstr "Інспекція правил перепису WordPress"
+
+#~ msgid "Permalinks not aviable"
+#~ msgstr "Постійні посилання не увімкнено"

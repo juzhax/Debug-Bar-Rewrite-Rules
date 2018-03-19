@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Debug Bar Rewrite Rules\n"
-"POT-Creation-Date: 2016-09-05 17:33+0200\n"
+"POT-Creation-Date: 2018-03-20 00:26+0200\n"
 "PO-Revision-Date: 2016-09-05 17:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,35 +20,39 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: rewrite-rules.php:159
+#: rewrite-rules.php:190
 msgid "Rewrite Rules"
 msgstr ""
 
-#: rewrite-rules.php:160
-msgid "WordPress Rewrite Rules Inspection"
+#: rewrite-rules.php:191
+msgid "WordPress Rewrite Rules Inspector"
 msgstr ""
 
-#: rewrite-rules.php:253
+#: rewrite-rules.php:285
 msgid "Matches"
 msgstr ""
 
-#: rewrite-rules.php:333
+#: rewrite-rules.php:372
 msgid "Function"
 msgstr ""
 
-#: rewrite-rules.php:334
+#: rewrite-rules.php:373
 msgid "Anonymous lambda function"
 msgstr ""
 
-#: rewrite-rules.php:335
+#: rewrite-rules.php:374
 msgid "Closure anonymous function"
 msgstr ""
 
-#: rewrite-rules.php:338
+#: rewrite-rules.php:377
+msgid "Callable Object"
+msgstr ""
+
+#: rewrite-rules.php:378
 msgid "Dynamic method"
 msgstr ""
 
-#: rewrite-rules.php:339
+#: rewrite-rules.php:379
 msgid "Static method"
 msgstr ""
 
@@ -80,6 +84,10 @@ msgstr ""
 msgid "WP Rewrite Rules List"
 msgstr ""
 
+#: templates/info-rules.php:24
+msgid "Filter Rewrite Rules List"
+msgstr ""
+
 #: templates/info-rules.php:32
 msgid "Rule"
 msgstr ""
@@ -89,7 +97,7 @@ msgid "Match"
 msgstr ""
 
 #: templates/info-rules.php:45
-msgid "Permalinks not aviable"
+msgid "Permalinks not available"
 msgstr ""
 
 #: templates/info-stats.php:17
@@ -113,7 +121,7 @@ msgid "Debug Bar Rewrite Rules"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://wordpress.org/extend/plugins/debug-bar-rewrite-rules/"
+msgid "https://github.com/butuzov/wp-debug-bar-rewrite-rules"
 msgstr ""
 
 #. Description of the plugin/theme
