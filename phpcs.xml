@@ -8,6 +8,8 @@
 	#########################################################################
 	-->
 
+	<rule ref="WordPress" />
+
 	<!-- ##### Path Never Going To Be Tested ##### -->
 	<exclude-pattern>tests/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
