@@ -12,33 +12,31 @@
  */
 
 if ( function_exists( 'filter_input_array' ) ) {
-	$args = array(
-		'rules' => array(
-			'filter' => FILTER_CALLBACK,
+	$input = filter_input_array( INPUT_POST, array(
+		'rules'  => array(
+			'filter'  => FILTER_CALLBACK,
 			'options' => function ( $var ) {
-				return filter_var( $var , FILTER_SANITIZE_STRING );
+				return filter_var( $var, FILTER_SANITIZE_STRING );
 			},
 		),
 		'search' => FILTER_SANITIZE_STRING,
-	);
-
-	$input = filter_input_array( INPUT_POST, $args );
+	) );
 } else {
-	$input = array_map( 'sanitize' , $_POST ); // input var, CSRF.
+	$input = array_map( 'sanitize', $_POST ); // input var, CSRF.
 }
 
 
 if ( ! empty( $input['rules'] ) && is_array( $input['rules'] ) && ! empty( $input['search'] ) ) {
 
-	$search = trim( $input['search'] );
+	$search   = trim( $input['search'] );
 	$search_u = urldecode( $search );
 
 	foreach ( $input['rules'] as $k => $rule ) {
 
 		$regexp = sprintf( '#^%s#', $rule['rule'] );
 
-
-		if ( preg_match( $regexp, $search, $matches ) || preg_match( $regexp, $search_u, $matches ) ) {
+		if ( preg_match( $regexp, $search, $matches )
+			|| preg_match( $regexp, $search_u, $matches ) ) {
 
 			// Trim the query of everything up to the '?'.
 			$query = preg_replace( '!^.+\?!', '', $rule['match'] );
@@ -60,11 +58,8 @@ if ( ! empty( $input['rules'] ) && is_array( $input['rules'] ) && ! empty( $inpu
 			}
 
 			$input['rules'][ $k ]['result'] = true;
-
 		} else {
-
 			$input['rules'][ $k ]['result'] = false;
-
 		}
 	}
 }

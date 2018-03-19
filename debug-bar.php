@@ -35,8 +35,8 @@ class Debug_Bar_Rewrite_Rules_Panel extends Debug_Bar_Panel {
 	 */
 	public function init() {
 		$this->title( UA_Made_Rewrite_Rules::i()->title );
-		add_action( 'wp_enqueue_scripts', array( UA_Made_Rewrite_Rules::i(), 'assets') );
-		add_action( 'admin_enqueue_scripts', array( UA_Made_Rewrite_Rules::i(), 'assets') );
+		add_action( 'wp_enqueue_scripts', array( UA_Made_Rewrite_Rules::i(), 'assets' ) );
+		add_action( 'admin_enqueue_scripts', array( UA_Made_Rewrite_Rules::i(), 'assets' ) );
 	}
 
 	/**
@@ -44,7 +44,7 @@ class Debug_Bar_Rewrite_Rules_Panel extends Debug_Bar_Panel {
 	 *
 	 * @return bool
 	 */
-	function is_visible() {
+	public function is_visible() {
 		return $this->_visible;
 	}
 	/**
@@ -59,17 +59,21 @@ class Debug_Bar_Rewrite_Rules_Panel extends Debug_Bar_Panel {
 	/**
 	 * Set Visible function.
 	 *
-	 * determine to set visible or not a panel.
+	 * Determine to set visible or not a panel.
 	 *
 	 * @param bool $visible True or False, Visible or Not for rewrite rules panel.
 	 * @return void
 	 */
-	function set_visible( $visible ) {
+	public function set_visible( $visible ) {
 		$this->_visible = $visible;
 	}
 
-
-	function render() {
+	/**
+	 * Renders the Debug Bar panel
+	 *
+	 * @return void
+	 */
+	public function render() {
 		echo // WPCS: XSS OK.
 			'<div class="debug-bar-rewrites-urls">',
 			UA_Made_Rewrite_Rules::i()->stats(),
