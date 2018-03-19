@@ -1,5 +1,10 @@
 ## Changelog
 
+### 0.5
+* [minor changes] - Localization Changes.
+* [improvement] - New Icon (for wordpress.prg) and tags.
+* [code refactoring] - Minor code changes.
+
 ### 0.4
 * [improvement] - Added track for PHP `__invoke` methods (callable objects)
 * [bugfix] - Added fix for plugin loaded via symlinks
