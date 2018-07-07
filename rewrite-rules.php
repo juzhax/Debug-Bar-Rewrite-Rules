@@ -201,7 +201,17 @@ class UA_Made_Rewrite_Rules {
 	 * @return void
 	 */
 	public function admin_menu() {
-		$this->hook = add_management_page( $this->pagetitle, $this->title, 'manage_options', 'rewrite-rules', array( $this, 'view' ) );
+		$this->hook = add_management_page( $this->pagetitle, $this->title, 'manage_options', 'rewrite-rules', array( $this, 'admin_page' ) );
+	}
+
+
+	/**
+	 * Standalone admin page implementation for view callback.
+	 *
+	 * @return void
+	 */
+	public function admin_page() {
+		$this->view();
 	}
 
 
@@ -440,7 +450,7 @@ class UA_Made_Rewrite_Rules {
 	 * Unfortunatelly we can't track `add_rewrite_rule` function call due a
 	 * luck of filters/actions in it.
 	 *
-	 * @param  WP_Rewrite   $wp_rewrite  WP_Rewrite Object.
+	 * @param  WP_Rewrite $wp_rewrite  WP_Rewrite Object.
 	 * @return void
 	 */
 	public function track_generate_rewrite_rules( $wp_rewrite ) {
