@@ -1,8 +1,11 @@
 ## Changelog
 
+### 0.6
+* [bug] - Fixed issue with internal page.
+
 ### 0.5
 * [minor changes] - Localization Changes.
-* [improvement] - New Icon (for wordpress.prg) and tags.
+* [improvement] - New Icon (for wordpress.org) and tags.
 * [code refactoring] - Minor code changes.
 
 ### 0.4

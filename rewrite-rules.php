@@ -12,7 +12,7 @@
  * Plugin Name: Debug Bar Rewrite Rules
  * Plugin URI:  https://github.com/butuzov/Debug-Bar-Rewrite-Rules
  * Description: Debug Bar Rewrite Rules helps to debug WP Rewrite Rules with and without of the help of the Debug Bar.
- * Version:     0.5
+ * Version:     0.6
  * Author:      Oleg Butuzov
  * Author URI:  https://github.com/butuzov
  * Depends:     Debug Bar
