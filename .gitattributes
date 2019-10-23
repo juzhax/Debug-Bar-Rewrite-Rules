@@ -4,3 +4,4 @@ phpcs.xml export-ignore
 js/sources export-ignore
 css/sources export-ignore
 wp-svn-assets export-ignore
+logo.png export-ignore
