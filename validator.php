@@ -12,15 +12,16 @@
  */
 
 if ( function_exists( 'filter_input_array' ) ) {
-	$input = filter_input_array( INPUT_POST, array(
-		'rules'  => array(
-			'filter'  => FILTER_CALLBACK,
-			'options' => function ( $var ) {
-				return filter_var( $var, FILTER_SANITIZE_STRING );
-			},
-		),
-		'search' => FILTER_SANITIZE_STRING,
-	) );
+	$input = filter_input_array( INPUT_POST,
+		array(
+			'rules'  => array(
+				'filter'  => FILTER_CALLBACK,
+				'options' => function ( $var ) {
+					return filter_var( $var, FILTER_SANITIZE_STRING );
+				},
+			),
+			'search' => FILTER_SANITIZE_STRING,
+		) );
 } else {
 	$input = array_map( 'sanitize', $_POST ); // input var, CSRF.
 }
@@ -42,7 +43,7 @@ if ( ! empty( $input['rules'] ) && is_array( $input['rules'] ) && ! empty( $inpu
 			$query = preg_replace( '!^.+\?!', '', $rule['match'] );
 
 			foreach ( $matches as $_k => $_i ) {
-				if ( false !== strpos( $query, '$matches['.$_k.']' ) ) {
+				if ( false !== strpos( $query, '$matches[' . $_k . ']' ) ) {
 					$query = str_replace( '$matches[' . $_k . ']', $_i, $query );
 				}
 			}

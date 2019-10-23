@@ -29,7 +29,7 @@
 	<table cellspacing="0" class="dbrrtbl">
 		<thead>
 			<tr>
-				<th class="col-data" style="width:50%;"><?php esc_html_e( 'Rule', 'debug-bar-rewrite-rules' )?></th>
+				<th class="col-data" style="width:50%;"><?php esc_html_e( 'Rule', 'debug-bar-rewrite-rules' ); ?></th>
 				<th class="col-data" style="width:50%;"><?php esc_html_e( 'Match', 'debug-bar-rewrite-rules' ); ?></th>
 			</tr>
 		</thead>
@@ -42,7 +42,7 @@
 					</tr>
 				<?php } ?>
 			<?php } else { ?>
-				<tr><td colspan="2"><?php esc_html_e('Permalinks not available', 'debug-bar-rewrite-rules' ); ?></td></tr>
+				<tr><td colspan="2"><?php esc_html_e( 'Permalinks not available', 'debug-bar-rewrite-rules' ); ?></td></tr>
 			<?php } ?>
 		</tbody>
 	</table>
