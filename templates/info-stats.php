@@ -31,6 +31,6 @@
 	</h2>
 	<?php } ?>
 
-	<a href="#"><?php esc_html_e( 'Flush Rewrite Rules', 'debug-bar-rewrite-rules' ); ?><i class="spinner"></i></a>
+	<a href="#" class="_tracking"><?php esc_html_e( 'Flush Rewrite Rules', 'debug-bar-rewrite-rules' ); ?><i class="spinner"></i></a>
 	<div class="clear"></div>
 </div>

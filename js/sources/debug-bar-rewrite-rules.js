@@ -395,8 +395,7 @@ var DebugBarRewriteRules_App = (function($) {
 			 */
 			reset_rewrite_rules : function(  ) {
 
-				// We have only one link in headings seaction.
-				$('.debug-bar-rewrites-urls a')
+				$('.debug-bar-rewrites-urls a._tracking')
 					.bind( 'click', function( e ) {
 
 						e.preventDefault();
