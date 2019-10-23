@@ -224,15 +224,52 @@ class UA_Made_Rewrite_Rules {
 	 * @return void
 	 */
 	private function view() {
+		
+		if ( get_option( 'rewrite_rules' ) == "" ) {
+			echo // WPCS: XSS OK.
+				'<div class="wrap debug-bar-rewrites-urls">',
+				sprintf( '<h2>%s</h2>', $this->pagetitle ),
+				$this->notice_no_rewrite_rules(),
+				'</div>';
+			return;
+		}
+
 		echo // WPCS: XSS OK.
 			'<div class="wrap debug-bar-rewrites-urls">',
 			sprintf( '<h2>%s</h2>', $this->pagetitle ),
+			$this->notice_debug_bar(),
 			$this->stats(),
 			$this->rules(),
-			$this->filters(),
+			$this->filters(), 
 			'</div>';
 	}
 
+	/**
+	 * Displays error message about missing rewrite_rules.
+	 *
+	 * @return void
+	 */
+	public function notice_no_rewrite_rules() {
+
+		$message = __( 'Would you like to enable <a href="%s">%s</a> ?', 'debug-bar-rewrite-rules' );
+		$message = sprintf( $message, admin_url( 'options-permalink.php' ), __( 'Permalinks' ) );
+
+		printf( '<div class="%s"><p>%s</p></div>', 'error', $message );
+	}
+
+
+	/**
+	 * Debug Bar notice message
+	 *
+	 * @return void
+	 */
+	public function notice_debug_bar() {
+
+		$message = __( 'Consider installing <a href="%s">%s</a> option of the alternative interface.', 'debug-bar-rewrite-rules' );
+		$message = sprintf( $message, "https://wordpress.org/plugins/debug-bar/", 'Debug Bar' );
+
+		printf( '<div class="%s"><p>%s</p></div>', 'updated', $message );
+	}
 
 	/**
 	 * Adds panel, as defined in the included class, to Debug Bar.
