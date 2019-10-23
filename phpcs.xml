@@ -14,16 +14,6 @@
 	<exclude-pattern>tests/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 
-	<!--
-		Rule: For associative arrays, values should start on a new line.
-			Also covers various single-line array whitespace issues.
-	-->
-	<rule ref="WordPress.Arrays.ArrayDeclarationSpacing">
-		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing.NotLowerCase" />
-		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing.SpaceAfterKeyword" />
-		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing.SpaceInEmptyArray" />
-	</rule>
-
 
 	<!-- https://github.com/Automattic/vip-scanner/blob/master/vip-scanner/checks/ForbiddenPHPFunctionsCheck.php -->
 	<rule ref="WordPress.PHP.DiscouragedPHPFunctions">
@@ -55,14 +45,6 @@
 	//-->
 	<arg name="tab-width" value="4"/>
 	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
-
-
-	<!--
-		Rule: Note the comma after the last array item: this is recommended.
-	//-->
-	<rule ref="WordPress.Arrays.ArrayDeclaration">
-		<exclude name="WordPress.Arrays.ArrayDeclaration.SingleLineNotAllowed" />
-	</rule>
 
 
 	<!--
@@ -213,27 +195,6 @@
 
 
 	<!--
-		Handbook: PHP - Formatting SQL statements.
-		Ref: https://make.wordpress.org/core/handbook/coding-standards/php/#formatting-sql-statements
-
-
-		Rule: Always capitalize the SQL parts of the statement like UPDATE or WHERE.
-			https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/639
-
-		Rule: Functions that update the database should expect their parameters to lack
-			SQL slash escaping when passed.
-		 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/640
-
-		Rule: in $wpdb->prepare - only %s and %d are used as placeholders. Note that they are not "quoted"!
-		 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/641
-
-		Rule: Escaping should be done as close to the time of the query as possible,
-		 preferably by using $wpdb->prepare()
-	// -->
-	<rule ref="WordPress.WP.PreparedSQL"/>
-
-
-	<!--
 		Handbook: PHP - Database Queries.
 		Ref: https://make.wordpress.org/core/handbook/coding-standards/php/#database-queries
 		Rule: Avoid touching the database directly.
@@ -260,11 +221,6 @@
 	<rule ref="Squiz.PHP.DisallowMultipleAssignments"/>
 	<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 
-	<!--
-		Handbook: PHP - Don't extract().
-		Ref: https://make.wordpress.org/core/handbook/coding-standards/php/#dont-extract
-	//-->
-	<rule ref="WordPress.Functions.DontExtract"/>
 
 	<!--
 		Important to prevent issues with content being sent before headers.
@@ -320,8 +276,6 @@
 		Ref: https://vip.wordpress.com/documentation/code-review-what-we-look-for/#validation-sanitization-and-escaping
 		Ref: https://vip.wordpress.com/documentation/best-practices/security/validating-sanitizing-escaping/
 	//-->
-	<rule ref="WordPress.XSS.EscapeOutput"/>
-	<rule ref="WordPress.CSRF.NonceVerification" />
 
 
 	<!--
