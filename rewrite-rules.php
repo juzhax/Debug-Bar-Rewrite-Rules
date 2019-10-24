@@ -324,8 +324,7 @@ class UA_Made_Rewrite_Rules {
 				'validator' => plugins_url( 'validator.php', DBRR_FILE ),
 				'home'      => trailingslashit( get_home_url() ),
 				'matches'   => __( 'Matches', 'debug-bar-rewrite-rules' ),
-			),
-		);
+			));
 
 		wp_enqueue_script( $this::NAME );
 	}
@@ -374,8 +373,7 @@ class UA_Made_Rewrite_Rules {
 				'i'             => 0,
 				'domain'        => $domain,
 				'width'         => ( strlen( $domain ) * 8 ) . 'px',
-			), 
-		);
+			));
 	}
 
 	/**
