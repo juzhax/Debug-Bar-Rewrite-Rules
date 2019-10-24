@@ -2,7 +2,7 @@
 
 * Contributors: @butuzov
 * Donate Link: http://wordpress.org
-* Tags: permalinks, rewrite rules, tests, testing, debug bar
+* Tags: permalinks, rewrite rules, tests, testing, debug, debug bar
 * Requires at least: 3.4
 * Tested up to: 5.2.4
 * Stable tag: 0.6.1
