@@ -1,0 +1,40 @@
+{
+  "name": "debug-bar-rewrite-rules",
+  "version": "0.6.1",
+  "description": "wordpress debug bar plugin",
+  "scripts": {
+    "gulp": "gulp --gulpfile gulpfile.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/butuzov/Debug-Bar-Rewrite-Rules.git"
+  },
+  "keywords": [
+    "permalinks",
+    "rewrite rules",
+    "tests",
+    "testing",
+    "debug",
+    "debug bar"
+  ],
+  "author": "butuzov",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/butuzov/Debug-Bar-Rewrite-Rules/issues"
+  },
+  "homepage": "https://github.com/butuzov/Debug-Bar-Rewrite-Rules#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssbeautify": "^2.0.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-less": "^4.0.1",
+    "gulp-plumber": "^1.2.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "gulp-jsbeautifier": "^3.0.1",
+    "gulp-uglify": "^3.0.2"
+  }
+}

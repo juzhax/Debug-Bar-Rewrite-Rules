@@ -416,7 +416,7 @@ var DebugBarRewriteRules_App = (function($) {
                                 visibility: 'hidden'
                             });
 
-                            // Deelting
+                            // Deleting
                             delete $this.rules;
 
                             // Replacing Tables

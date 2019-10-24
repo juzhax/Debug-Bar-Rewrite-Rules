@@ -16,7 +16,7 @@ var DebugBarRewriteRules_App = (function($) {
 			 */
 			search : function() {
 
-				$('.mono.matches')
+				$('.mono.matches' )
 					.bind( 'focus', function(){
 						$( 'div.filterui .url.active' ).removeClass( 'active' );
 						$( '.dbrr.rules table tr .col-match').remove();
@@ -415,7 +415,7 @@ var DebugBarRewriteRules_App = (function($) {
 								visibility: 'hidden'
 							});
 
-							// Deelting
+							// Deleting
 							delete  $this.rules;
 
 							// Replacing Tables
