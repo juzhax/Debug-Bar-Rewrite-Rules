@@ -5,14 +5,14 @@
  * @package     WordPress\Plugins\Debug Bar Rewrite Rules
  * @author      Oleg Butuzov
  * @link        https://github.com/butuzov/Debug-Bar-Rewrite-Rules
- * @version     0.6.1
+ * @version     0.6.2
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  *
  * @wordpress-plugin
  * Plugin Name: Debug Bar Rewrite Rules
  * Plugin URI:  https://github.com/butuzov/Debug-Bar-Rewrite-Rules
  * Description: Debug Bar Rewrite Rules helps to debug WP Rewrite Rules with and without of the help of the Debug Bar.
- * Version:     0.6.1
+ * Version:     0.6.2
  * Author:      Oleg Butuzov
  * Author URI:  https://github.com/butuzov
  * Depends:     Debug Bar
@@ -88,7 +88,7 @@ class UA_Made_Rewrite_Rules {
 	 *
 	 * @var $instance Class Instance.
 	 */
-	private static $version = '0.6.1';
+	private static $version = '0.6.2';
 
 	/**
 	 * Single instance
