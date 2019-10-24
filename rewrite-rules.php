@@ -373,7 +373,7 @@ class UA_Made_Rewrite_Rules {
 				'rewrite_rules' => get_option( 'rewrite_rules' ),
 				'i'             => 0,
 				'domain'        => $domain,
-				'width'         => ( strlen( $domain ) * 8 ) . ' px',
+				'width'         => ( strlen( $domain ) * 8 ) . 'px',
 			), 
 		);
 	}
