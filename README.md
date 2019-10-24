@@ -1,5 +1,10 @@
 # Debug Bar Rewrite Rules
 
+![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/debug-bar-rewrite-rules)
+![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/debug-bar-rewrite-rules)
+![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dm/debug-bar-rewrite-rules)
+![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/stars/debug-bar-rewrite-rules)
+
 * Contributors: @butuzov
 * Donate Link: http://wordpress.org
 * Tags: permalinks, rewrite rules, tests, testing, debug, debug bar
