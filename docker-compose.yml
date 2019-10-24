@@ -1,0 +1,68 @@
+version: '3.1'
+
+
+
+services:
+
+  wordpress:
+    image: wordpress
+    ports:
+      - 8080:80
+    working_dir: /var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    volumes:
+      - data-wp:/var/www/html
+      - .:/var/www/html/wp-content/plugins/debug-bar-rewrite-rules:rw
+    depends_on:
+      - db
+      - wp-cli
+    networks:
+      - wordpress-network
+
+  wp-cli:
+    image: wordpress:cli
+    user: root
+    working_dir: /var/www/html
+    volumes:
+      - data-wp:/var/www/html
+      - .:/var/www/html/wp-content/plugins/debug-bar-rewrite-rules:rw
+    networks:
+      - wordpress-network
+
+  db:
+    image: mysql:5.7.28
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - data-mysql:/var/lib/mysql
+    networks:
+      - wordpress-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: admin
+    ports:
+      - 8081:80
+    depends_on:
+      - db
+    networks:
+      - wordpress-network
+
+
+networks:
+  wordpress-network:
+    driver: bridge
+
+volumes:
+  data-mysql:
+  data-wp:

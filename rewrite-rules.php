@@ -5,14 +5,14 @@
  * @package     WordPress\Plugins\Debug Bar Rewrite Rules
  * @author      Oleg Butuzov
  * @link        https://github.com/butuzov/Debug-Bar-Rewrite-Rules
- * @version     0.6.1
+ * @version     0.6.2
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  *
  * @wordpress-plugin
  * Plugin Name: Debug Bar Rewrite Rules
  * Plugin URI:  https://github.com/butuzov/Debug-Bar-Rewrite-Rules
  * Description: Debug Bar Rewrite Rules helps to debug WP Rewrite Rules with and without of the help of the Debug Bar.
- * Version:     0.6.1
+ * Version:     0.6.2
  * Author:      Oleg Butuzov
  * Author URI:  https://github.com/butuzov
  * Depends:     Debug Bar
@@ -82,23 +82,13 @@ if ( ! function_exists( 'umdbrr_deactivate' ) ) {
  */
 class UA_Made_Rewrite_Rules {
 
-	/**
-	 * Part of md5 hash for the css/debug-bar-rewrite-rules.min.css,
-	 * used as version of the file.
-	 *
-	 * @var string
-	 */
-	private $css = '269a8b4d78';
-
-	/**
-	 * Part of md5 hash for the js/debug-bar-rewrite-rules.min.js,
-	 * used as version of the file.
-	 *
-	 * @var string
-	 */
-	private $js = '191f074e35b';
-
 	const NAME = 'debug-bar-rewrite-rules';
+	/**
+	 * Plugin Version
+	 *
+	 * @var $instance Class Instance.
+	 */
+	private static $version = '0.6.2';
 
 	/**
 	 * Single instance
@@ -224,8 +214,7 @@ class UA_Made_Rewrite_Rules {
 	 * @return void
 	 */
 	private function view() {
-		
-		if ( get_option( 'rewrite_rules' ) == "" ) {
+		if ( get_option( 'rewrite_rules' ) === "" ) {
 			echo // WPCS: XSS OK.
 				'<div class="wrap debug-bar-rewrites-urls">',
 				sprintf( '<h2>%s</h2>', $this->pagetitle ),
@@ -240,7 +229,7 @@ class UA_Made_Rewrite_Rules {
 			$this->notice_debug_bar(),
 			$this->stats(),
 			$this->rules(),
-			$this->filters(), 
+			$this->filters(),
 			'</div>';
 	}
 
@@ -309,31 +298,36 @@ class UA_Made_Rewrite_Rules {
 	 */
 	public function assets( $hook_suffix = '' ) {
 
-		$is_debug_bar = class_exists( 'Debug_Bar' ) && is_admin_bar_showing();
+		$is_debug_bar  = class_exists( 'Debug_Bar' ) && is_admin_bar_showing();
+		$is_admin_page = ! empty( $this->hook ) && $hook_suffix === $this->hook;
 
-		if ( ( ! empty( $this->hook ) && $hook_suffix === $this->hook ) || $is_debug_bar ) {
+		if ( ! ( $is_debug_bar || $is_admin_page ) ) {
+			return;
+		}
 
-			$suffix = ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min' );
+		$suffix = ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min' );
 
-			// Style Enqueue.
-			$style_url = plugins_url( 'css/' . $this::NAME . $suffix . '.css', DBRR_FILE );
-			wp_enqueue_style( $this::NAME, $style_url, false, $this->css, 'all' );
+		// Style Enqueue.
+		$style_url = plugins_url( 'assets/' . $this::NAME . $suffix . '.css', DBRR_FILE );
+		wp_enqueue_style( $this::NAME, $style_url, false, $this->version, 'all' );
 
-			// Script will be registread and enqueued to run with additional data.
-			$script_url   = plugins_url( 'js/' . $this::NAME . $suffix . '.js', DBRR_FILE );
-			$dependencies = array( 'jquery', 'underscore' );
-			wp_register_script( $this::NAME, $script_url, $dependencies, $this->js, true );
+		// Script will be registread and enqueued to run with additional data.
+		$script_url   = plugins_url( 'assets/' . $this::NAME . $suffix . '.js', DBRR_FILE );
+		$dependencies = array( 'jquery', 'underscore' );
+		wp_register_script( $this::NAME, $script_url, $dependencies, $this->version, true );
 
-			wp_localize_script( $this::NAME, 'debugBarRewriteRules', array(
+		wp_localize_script( $this::NAME,
+			'debugBarRewriteRules',
+			array(
 				'nonce'     => wp_create_nonce( 'debug-bar-rewrite-rules-nonce' ),
 				'ajaxurl'   => admin_url( 'admin-ajax.php' ),
 				'validator' => plugins_url( 'validator.php', DBRR_FILE ),
 				'home'      => trailingslashit( get_home_url() ),
 				'matches'   => __( 'Matches', 'debug-bar-rewrite-rules' ),
-			) );
+			),
+		);
 
-			wp_enqueue_script( $this::NAME );
-		}
+		wp_enqueue_script( $this::NAME );
 	}
 
 	/**
@@ -374,12 +368,14 @@ class UA_Made_Rewrite_Rules {
 	public function rules() {
 
 		$domain = trailingslashit( get_home_url() );
-		return $this->template( '/templates/info-rules.php', array(
-			'rewrite_rules' => get_option( 'rewrite_rules' ),
-			'i'             => 0,
-			'domain'        => $domain,
-			'width'         => ( strlen( $domain ) * 8 ) . ' px',
-		) );
+		return $this->template( '/templates/info-rules.php', 
+			array(
+				'rewrite_rules' => get_option( 'rewrite_rules' ),
+				'i'             => 0,
+				'domain'        => $domain,
+				'width'         => ( strlen( $domain ) * 8 ) . 'px',
+			), 
+		);
 	}
 
 	/**

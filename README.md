@@ -1,11 +1,16 @@
 # Debug Bar Rewrite Rules
 
+![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/debug-bar-rewrite-rules)
+![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/debug-bar-rewrite-rules)
+![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dm/debug-bar-rewrite-rules)
+![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/stars/debug-bar-rewrite-rules)
+
 * Contributors: @butuzov
 * Donate Link: http://wordpress.org
-* Tags: permalinks, rewrite rules, tests, testing, debug bar
+* Tags: permalinks, rewrite rules, tests, testing, debug, debug bar
 * Requires at least: 3.4
 * Tested up to: 5.2.4
-* Stable tag: 0.6.1
+* Stable tag: 0.6.2
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

@@ -5,7 +5,7 @@
  * @package     WordPress\Plugins\Debug Bar Rewrite Rules\Filters UI Template.
  * @author      Oleg Butuzov
  * @link        https://github.com/butuzov/wp-debug-bar-rewrite-rules
- * @version     0.6.1
+ * @version     0.6.2
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  *
  * @wordpress-plugin
@@ -17,12 +17,12 @@
 <div class="dbrr filters">
 	<table cellspacing="0"  >
 		<thead>
-			 <tr>
+			<tr>
 				<th width="20%"><?php esc_html_e( 'Hook', 'debug-bar-rewrite-rules' ); ?></th>
 				<th width="10%"><?php esc_html_e( 'Priority', 'debug-bar-rewrite-rules' ); ?></th>
 				<th width="35%"><?php esc_html_e( 'Callback Type', 'debug-bar-rewrite-rules' ); ?></th>
 				<th width="35%"><?php esc_html_e( 'Callback', 'debug-bar-rewrite-rules' ); ?></th>
-			 </tr>
+			</tr>
 		</thead>
 		<tbody>
 			<?php
