@@ -1,7 +1,11 @@
 phpcs.xml export-ignore
 .editorconfig export-ignore
 .gitattributes export-ignore
-js/sources export-ignore
-css/sources export-ignore
+assets/debug-bar-rewrite-rules.dev.js export-ignore
+assets/debug-bar-rewrite-rules.less export-ignore
 wp-svn-assets export-ignore
 logo.png export-ignore
+gulpfile.js export-ignore
+Makefile export-ignore
+package.json export-ignore
+docker-compose.yml export-ignore

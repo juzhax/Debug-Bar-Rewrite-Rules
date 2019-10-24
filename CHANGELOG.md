@@ -1,7 +1,9 @@
 ## Changelog
 
 ### 0.6
-* [bug] - Fixed issue with internal page.
+* [bug] - Fixed: admin page    https://github.com/butuzov/Debug-Bar-Rewrite-Rules/issues/2
+* [bug] - Fixed: domain field  https://github.com/butuzov/Debug-Bar-Rewrite-Rules/issues/3
+* [general] - added Makefile to simplify development
 
 ### 0.5
 * [minor changes] - Localization Changes.

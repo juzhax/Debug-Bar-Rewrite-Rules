@@ -50,3 +50,7 @@ npm:
 # builds css/js and generate hashes files.
 gulp: npm
 	npm run gulp
+
+# Test gitattributes
+export:
+	git archive --format=tar --prefix=development/ --output="archive.tar" develop
