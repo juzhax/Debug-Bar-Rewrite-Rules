@@ -305,7 +305,7 @@ class UA_Made_Rewrite_Rules {
 			return;
 		}
 
-		$suffix = ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min' );
+		$suffix = ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.dev' : '' );
 
 		// Style Enqueue.
 		$style_url = plugins_url( 'assets/' . $this::NAME . $suffix . '.css', DBRR_FILE );
