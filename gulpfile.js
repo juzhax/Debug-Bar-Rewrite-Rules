@@ -9,7 +9,6 @@ var run = {
 	js_beutify  : require( 'gulp-jsbeautifier' ),
 	plumber     : require( 'gulp-plumber' ),
 	path        : require( 'path' ),
-	shell       : require( 'gulp-shell' ),
 };
 
 let name        = "debug-bar-rewrite-rules";
@@ -66,9 +65,6 @@ function js_beutify(){
 		.pipe(gulp.dest(directory+"/"))
 }
 
-function hash_changed(){
-	return gulp.src(directory+"/*.min.*", )
-				.pipe(run.shell([ './update_versions_and_hashes.sh' ]))
 }
 
 exports.default = gulp.parallel(
