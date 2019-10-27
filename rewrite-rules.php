@@ -88,7 +88,7 @@ class UA_Made_Rewrite_Rules {
 	 *
 	 * @var $instance Class Instance.
 	 */
-	private static $version = '0.6.2';
+	public $version = '0.6.2';
 
 	/**
 	 * Single instance
