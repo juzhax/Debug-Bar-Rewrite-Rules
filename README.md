@@ -1,9 +1,10 @@
 # Debug Bar Rewrite Rules
 
-![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/debug-bar-rewrite-rules)
+[![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/debug-bar-rewrite-rules)](https://wordpress.org/plugins/debug-bar-rewrite-rules/)
 ![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/debug-bar-rewrite-rules)
-![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dm/debug-bar-rewrite-rules)
-![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/stars/debug-bar-rewrite-rules)
+[![WP compatibility](https://plugintests.com/plugins/debug-bar-rewrite-rules/wp-badge.svg)](https://plugintests.com/plugins/debug-bar-rewrite-rules/latest)
+[![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dm/debug-bar-rewrite-rules)](https://wordpress.org/plugins/debug-bar-rewrite-rules/)
+[![PHP compatibility](https://plugintests.com/plugins/debug-bar-rewrite-rules/php-badge.svg)](https://plugintests.com/plugins/debug-bar-rewrite-rules/latest)
 
 * Contributors: @butuzov
 * Donate Link: http://wordpress.org
