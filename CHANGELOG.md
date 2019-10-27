@@ -1,6 +1,8 @@
 ## Changelog
 
 ### 0.6
+* [general] - way assets appear on a page changed.
+* [bug] - Fixed: warning on private static var
 * [bug] - Fixed: admin page    https://github.com/butuzov/Debug-Bar-Rewrite-Rules/issues/2
 * [bug] - Fixed: domain field  https://github.com/butuzov/Debug-Bar-Rewrite-Rules/issues/3
 * [general] - added Makefile to simplify development
