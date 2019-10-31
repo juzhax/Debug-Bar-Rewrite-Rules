@@ -34,6 +34,6 @@ Once installed, you will have access to the following information:
 
 ## Screenshots
 
-![Testing url for matches - show  matched rules and actual matches.](wp-svn-assets/screenshot-1.png)
-![Searching in rules list alongside with filtering and highlighting occurrences.](wp-svn-assets/screenshot-2.png)
-![Interface of Rewrite Rules Inspector without Debug Bar.](wp-svn-assets/screenshot-3.png)
+![Testing url for matches - show  matched rules and actual matches](wp-svn-assets/screenshot-1.png)
+![Searching in rules list alongside with filtering and highlighting occurrences](wp-svn-assets/screenshot-2.png)
+![Interface of Rewrite Rules Inspector without Debug Bar](wp-svn-assets/screenshot-3.png)
