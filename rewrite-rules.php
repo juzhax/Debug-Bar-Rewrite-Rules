@@ -367,7 +367,7 @@ class UA_Made_Rewrite_Rules {
 	public function rules() {
 
 		$domain = trailingslashit( get_home_url() );
-		return $this->template( '/templates/info-rules.php', 
+		return $this->template( '/templates/info-rules.php',
 			array(
 				'rewrite_rules' => get_option( 'rewrite_rules' ),
 				'i'             => 0,
