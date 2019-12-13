@@ -2,7 +2,8 @@
 # make - runs wordpress
 # make
 
-
+WP_SVN_USER ?= Butuzov
+WP_SVN_PASS ?= nopass
 WPCLI_CONTINER_NAME := wp-cli
 WPAPP_CONTINER_NAME := wordpress
 
@@ -54,3 +55,21 @@ gulp: npm
 # Test gitattributes
 export:
 	git archive --format=tar --prefix=development/ --output="archive.tar" develop
+
+# ----------------------------------------------------------------
+
+deployer:
+	rm -rf cd wp-plugins-deploy
+	git clone https://github.com/butuzov/wp-plugins-deploy
+
+deploy-existing: deployer
+	./wp-plugins-deploy/wp-deploy.sh \
+		--git=https://github.com/butuzov/Debug-Bar-Rewrite-Rules \
+		--svn=http://plugins.svn.wordpress.org/debug-bar-rewrite-rules \
+		--user="$(WP_SVN_USER)" --pass="$(WP_SVN_PASS)" -f
+
+deploy:
+	./wp-plugins-deploy/wp-deploy.sh \
+		--git=https://github.com/butuzov/Debug-Bar-Rewrite-Rules \
+		--svn=http://plugins.svn.wordpress.org/debug-bar-rewrite-rules \
+		--user="$(WP_SVN_USER)" --pass="$(WP_SVN_PASS)"
