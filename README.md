@@ -11,7 +11,7 @@
 * Tags: permalinks, rewrite rules, tests, testing, debug, debug bar
 * Requires at least: 3.4
 * Tested up to: 5.5.1
-* Stable tag: 0.6.3
+* Stable tag: 0.6.4
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

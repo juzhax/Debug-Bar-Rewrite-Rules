@@ -5,7 +5,7 @@
  * @package     WordPress\Plugins\Debug Bar Rewrite Rules\Regexp Rules validator.
  * @author      Oleg Butuzov
  * @link        https://github.com/butuzov/Debug-Bar-Rewrite-Rules
- * @version     0.6.3
+ * @version     0.6.4
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  *
  * @wordpress-plugin
