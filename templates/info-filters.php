@@ -37,7 +37,7 @@
 							'filter_name' => $filter,
 							'message'     => __( 'There are no filters use this hook.', 'debug-bar-rewrite-rules' ),
 						);
-						call_user_func_array( 'printf', $arguments );
+						call_user_func_array( 'printf', array_values( $arguments ) );
 						$filter_prev = $filter;
 
 					} else {
@@ -85,7 +85,7 @@
 											'callback_func' => $item[1],
 										);
 								}
-								call_user_func_array( 'printf', $arguments );
+								call_user_func_array( 'printf', array_values( $arguments ) );
 
 							} // End of foreach loop of $items.
 						} // End of foreach loop of $meta['filters'].
