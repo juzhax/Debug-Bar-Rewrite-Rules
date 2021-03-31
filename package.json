@@ -1,6 +1,6 @@
 {
   "name": "debug-bar-rewrite-rules",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "wordpress debug bar plugin",
   "scripts": {
     "gulp": "gulp --gulpfile gulpfile.js"

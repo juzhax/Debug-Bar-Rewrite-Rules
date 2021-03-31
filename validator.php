@@ -5,14 +5,15 @@
  * @package     WordPress\Plugins\Debug Bar Rewrite Rules\Regexp Rules validator.
  * @author      Oleg Butuzov
  * @link        https://github.com/butuzov/Debug-Bar-Rewrite-Rules
- * @version     0.6.4
+ * @version     0.6.5
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
  *
  * @wordpress-plugin
  */
 
 if ( function_exists( 'filter_input_array' ) ) {
-	$input = filter_input_array( INPUT_POST,
+	$input = filter_input_array(
+		INPUT_POST,
 		array(
 			'rules'  => array(
 				'filter'  => FILTER_CALLBACK,
@@ -21,7 +22,8 @@ if ( function_exists( 'filter_input_array' ) ) {
 				},
 			),
 			'search' => FILTER_SANITIZE_STRING,
-		) );
+		)
+	);
 } else {
 	$input = array_map( 'sanitize', $_POST ); // input var, CSRF.
 }
