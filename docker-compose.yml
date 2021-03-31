@@ -5,7 +5,7 @@ version: '3.1'
 services:
 
   wordpress:
-    image: wordpress
+    image: wordpress:5.7.0-php8.0-apache
     ports:
       - 8080:80
     working_dir: /var/www/html
@@ -27,6 +27,11 @@ services:
     image: wordpress:cli
     user: root
     working_dir: /var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
     volumes:
       - data-wp:/var/www/html
       - .:/var/www/html/wp-content/plugins/debug-bar-rewrite-rules:rw
@@ -48,9 +53,8 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: admin
-      WORDPRESS_DB_PASSWORD: admin
+      PMA_HOST: db
+      MYSQL_PASSWORD: '1'
     ports:
       - 8081:80
     depends_on:
