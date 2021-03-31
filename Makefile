@@ -27,7 +27,7 @@ wp-plugins:
 	docker-compose run  \
 		--rm "$(WPCLI_CONTINER_NAME)" wp plugin install \
 		--activate --allow-root --force \
-		https://downloads.wordpress.org/plugin/debug-bar.1.0.zip \
+		https://downloads.wordpress.org/plugin/debug-bar.1.1.2.zip \
 		https://downloads.wordpress.org/plugin/developer.1.2.6.zip
 
 # ----------------------------------------------------------------
