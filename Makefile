@@ -13,7 +13,7 @@ all: up wp-install wp-plugins
 
 # ----------------------------------------------------------------
 wp-install:
-	docker-compose run  \
+	docker compose run  \
 			--rm "$(WPCLI_CONTINER_NAME)" wp core install \
 			--allow-root \
 			--url=127.0.0.1:8080 \
@@ -24,10 +24,10 @@ wp-install:
 
 ## Install debug bar and developer
 wp-plugins:
-	docker-compose run  \
+	docker compose run  \
 		--rm "$(WPCLI_CONTINER_NAME)" wp plugin install \
 		--activate --allow-root --force \
-		https://downloads.wordpress.org/plugin/debug-bar.1.1.2.zip \
+		https://downloads.wordpress.org/plugin/debug-bar.1.1.6.zip \
 		https://downloads.wordpress.org/plugin/developer.1.2.6.zip
 
 # ----------------------------------------------------------------
