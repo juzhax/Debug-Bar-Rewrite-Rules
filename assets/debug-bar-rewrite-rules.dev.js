@@ -2,18 +2,18 @@
 var DebugBarRewriteRules_App = (function ($) {
 	$(function () {
 
-        /**
-         * Debug Bar Rewrite Urls namespace.
-         */
+		/**
+		 * Debug Bar Rewrite Urls namespace.
+		 */
 		var $this = {
 
-            /**
-             * Search for matches in rewrites
-             *
-             * This function do  check for a input into "Filter Rewrite Rules
-             * List" field, and if any it filter table to only then rouns that
-             * actually fits to our search pattern, and hilight that pattern.
-             */
+			/**
+			 * Search for matches in rewrites
+			 *
+			 * This function do  check for a input into "Filter Rewrite Rules
+			 * List" field, and if any it filter table to only then rouns that
+			 * actually fits to our search pattern, and hilight that pattern.
+			 */
 			search: function () {
 
 				$('.mono.matches')
@@ -29,13 +29,13 @@ var DebugBarRewriteRules_App = (function ($) {
 			},
 
 
-            /**
-             * Search for match.
-             *
-             * Searching for a pattern ( a value from .mono.matches input )
-             * in table of rewrite rules, and shows only found rows with
-             * heighligted value.
-             */
+			/**
+			 * Search for match.
+			 *
+			 * Searching for a pattern ( a value from .mono.matches input )
+			 * in table of rewrite rules, and shows only found rows with
+			 * heighligted value.
+			 */
 			_search_for_match: function (e) {
 
 				// Getting Pattern
@@ -73,14 +73,14 @@ var DebugBarRewriteRules_App = (function ($) {
 			},
 
 
-            /**
-             * Check whatever we need to care about this keyup event or not.
-             *
-             * return true if we need to care, and false otherwise.
-             *
-             * @param  event e  KeyUp event.
-             * @return bool
-             */
+			/**
+			 * Check whatever we need to care about this keyup event or not.
+			 *
+			 * return true if we need to care, and false otherwise.
+			 *
+			 * @param  event e  KeyUp event.
+			 * @return bool
+			 */
 			_active: function (e) {
 				// get keycode of current keypress event
 				var code = (e.keyCode || e.which);
@@ -99,12 +99,12 @@ var DebugBarRewriteRules_App = (function ($) {
 			},
 
 
-            /**
-             *  Search for url match in patterns.
-             *
-             * Test Url we type in url box against our rewrite rules.
-             * use internaly _filter_match  and _filter_searched
-             */
+			/**
+			 *  Search for url match in patterns.
+			 *
+			 * Test Url we type in url box against our rewrite rules.
+			 * use internaly _filter_match  and _filter_searched
+			 */
 			test: function () {
 
 				// Clickcing wp url and making webpath active.
@@ -151,12 +151,12 @@ var DebugBarRewriteRules_App = (function ($) {
 			},
 
 
-            /**
-             * Filter actual input and repalce it by one that actually
-             * doesn't contain site domain and path.
-             *
-             * @param  event  e KeyUp Event
-             */
+			/**
+			 * Filter actual input and repalce it by one that actually
+			 * doesn't contain site domain and path.
+			 *
+			 * @param  event  e KeyUp Event
+			 */
 			_filter_match: function (e) {
 
 				if (!$this._active(e)) {
@@ -206,12 +206,12 @@ var DebugBarRewriteRules_App = (function ($) {
 			},
 
 
-            /**
-             * Filtering table by urls that match to our pattern.
-             *
-             * @param  {[type]} e [description]
-             * @return {[type]}   [description]
-             */
+			/**
+			 * Filtering table by urls that match to our pattern.
+			 *
+			 * @param  {[type]} e [description]
+			 * @return {[type]}   [description]
+			 */
 			_filter_sarched: function (e) {
 
 				if (!$this._active(e)) {
@@ -288,14 +288,14 @@ var DebugBarRewriteRules_App = (function ($) {
 			},
 
 
-            /**
-             * Helper Function that reset table structure and view.
-             *
-             * Removes .hidden from table ,  colorize it as zebra and
-             * removed html grom cells.
-             *
-             * @param  jQuery   jQueryTableElement Table jQuery element.
-             */
+			/**
+			 * Helper Function that reset table structure and view.
+			 *
+			 * Removes .hidden from table ,  colorize it as zebra and
+			 * removed html grom cells.
+			 *
+			 * @param  jQuery   jQueryTableElement Table jQuery element.
+			 */
 			_table_reset: function (jQueryTableElement) {
 
 				$('tbody tr', jQueryTableElement)
@@ -311,11 +311,11 @@ var DebugBarRewriteRules_App = (function ($) {
 			},
 
 
-            /**
-             * Zebra Stripes colors for tables.
-             *
-             * @param  jQuery   jQueryTableElement Table jQuery element.
-             */
+			/**
+			 * Zebra Stripes colors for tables.
+			 *
+			 * @param  jQuery   jQueryTableElement Table jQuery element.
+			 */
 			_table_zebra: function (jQueryTableElement) {
 
 				$('tbody tr', jQueryTableElement)
@@ -330,12 +330,12 @@ var DebugBarRewriteRules_App = (function ($) {
 			},
 
 
-            /**
-             * parse_url php function clone.
-             *
-             * @param  string url [description]
-             * @return {[type]}     [description]
-             */
+			/**
+			 * parse_url php function clone.
+			 *
+			 * @param  string url [description]
+			 * @return {[type]}     [description]
+			 */
 			parse_url: function (url) {
 
 				/*	Dom parsing of A	*/
@@ -391,9 +391,9 @@ var DebugBarRewriteRules_App = (function ($) {
 			},
 
 
-            /**
-             *  Reset Rewrite Rules within DebugBar.
-             */
+			/**
+			 *  Reset Rewrite Rules within DebugBar.
+			 */
 			reset_rewrite_rules: function () {
 
 				$('.debug-bar-rewrites-urls a._tracking')
@@ -442,18 +442,18 @@ var DebugBarRewriteRules_App = (function ($) {
 						}, 'json');
 					});
 			},
-            /**
-             * Setup Settings.
-             */
+			/**
+			 * Setup Settings.
+			 */
 			setup: function (settings) {
 				$this.settings = $.extend($this.settings, settings);
 			},
 
 
-            /**
-             * Initialzier.
-             * @param  object settings object of array
-             */
+			/**
+			 * Initialzier.
+			 * @param  object settings object of array
+			 */
 			intialize: function (settings) {
 
 				return $this.setup(settings),

@@ -2,6 +2,7 @@
 
 ### 0.6.5
 * [bugfix] - php8.0 compatible call_user_func_array calls.
+
 ### 0.6
 * [general] - way assets appear on a page changed.
 * [bug] - Fixed: warning on private static var

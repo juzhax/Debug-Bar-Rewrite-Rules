@@ -15,7 +15,7 @@
 <h3><?php esc_html_e( 'WP Rewrite Filter Hooks and Filters', 'debug-bar-rewrite-rules' ); ?></h3>
 
 <div class="dbrr filters">
-	<table cellspacing="0"  >
+	<table cellspacing="0">
 		<thead>
 			<tr>
 				<th width="20%"><?php esc_html_e( 'Hook', 'debug-bar-rewrite-rules' ); ?></th>
