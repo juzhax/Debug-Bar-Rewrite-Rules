@@ -7,10 +7,11 @@
 [![PHP compatibility](https://plugintests.com/plugins/debug-bar-rewrite-rules/php-badge.svg)](https://plugintests.com/plugins/debug-bar-rewrite-rules/latest)
 
 * Contributors: @butuzov
-* Donate Link: http://wordpress.org
+* Donate Link: https://github.com/butuzov/butuzov/blob/main/README.md#user-content-main
+* PluginURI:
 * Tags: permalinks, rewrite rules, tests, testing, debug, debug bar
 * Requires at least: 3.4
-* Tested up to: 5.7.0
+* Tested up to: 6.5.5
 * Stable tag: 0.6.5
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
