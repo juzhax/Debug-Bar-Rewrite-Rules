@@ -1,11 +1,9 @@
-version: '3.1'
-
 
 
 services:
 
   wordpress:
-    image: wordpress:5.7.0-php8.0-apache
+    image: wordpress:6.5.5-php8.3-apache
     ports:
       - 8080:80
     working_dir: /var/www/html
@@ -24,7 +22,7 @@ services:
       - wordpress-network
 
   wp-cli:
-    image: wordpress:cli
+    image: wordpress:cli-2.10.0-php8.3
     user: root
     working_dir: /var/www/html
     environment:
@@ -39,7 +37,7 @@ services:
       - wordpress-network
 
   db:
-    image: mysql:5.7.28
+    image: mysql:9.0
     environment:
       MYSQL_DATABASE: exampledb
       MYSQL_USER: exampleuser
