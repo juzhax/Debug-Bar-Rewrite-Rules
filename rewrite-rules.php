@@ -116,7 +116,7 @@ class UA_Made_Rewrite_Rules {
 	}
 
 	/**
-	 * Class Cosntructor.
+	 * Class Constructor.
 	 */
 	public function __construct() {
 		global $wpdb;
@@ -155,8 +155,26 @@ class UA_Made_Rewrite_Rules {
 			add_action( 'admin_enqueue_scripts', array( $this, 'assets' ) );
 		}
 
+		// Add Domate Link (temporary)
+		add_filter('plugin_row_meta', array( $this, 'plugin_row_links' ), 10, 2);
+
 		// Flush rules ajax action.
 		add_action( 'wp_ajax_debug_bar_rewrite_rules', array( $this, 'ajax' ) );
+	}
+
+	/**
+	 * Adds Help Ukraine and Help Plugin Author link
+	 *
+	 * (temporary)
+	 */
+	function plugin_row_links( $plugin_meta, $plugin_file ) {
+
+		if ( "debug-bar-rewrite-rules/rewrite-rules.php" == $plugin_file ) {
+			$plugin_meta[] = sprintf('<a href="%s">%s</a>', 'https://github.com/butuzov/Debug-Bar-Rewrite-Rules/issues', __('Report Issue') );
+			$plugin_meta[] = sprintf('<a href="%s">%s</a>', 'https://github.com/butuzov/butuzov/blob/main/README.md#user-content-main', __('Plugin author asks for help') );
+		}
+
+		return $plugin_meta;
 	}
 
 	/**
