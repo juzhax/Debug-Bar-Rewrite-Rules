@@ -8,8 +8,7 @@
 
 * Contributors: @butuzov
 * Donate Link: https://github.com/butuzov/butuzov/blob/main/README.md#user-content-main
-* PluginURI:
-* Tags: permalinks, rewrite rules, tests, testing, debug, debug bar
+* Tags: permalinks, rewrite rules, testing, debug, debug bar
 * Requires at least: 3.4
 * Tested up to: 6.5.5
 * Stable tag: 0.6.5
