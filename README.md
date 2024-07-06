@@ -1,5 +1,6 @@
 # Debug Bar Rewrite Rules
 
+[![Stand with Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://u24.gov.ua/)
 [![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/debug-bar-rewrite-rules)](https://wordpress.org/plugins/debug-bar-rewrite-rules/)
 [![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/debug-bar-rewrite-rules)](https://wordpress.org/plugins/debug-bar-rewrite-rules/)
 [![WP compatibility](https://plugintests.com/plugins/debug-bar-rewrite-rules/wp-badge.svg)](https://plugintests.com/plugins/debug-bar-rewrite-rules/latest)
