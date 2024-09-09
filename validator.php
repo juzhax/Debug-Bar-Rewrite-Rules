@@ -18,10 +18,11 @@ if ( function_exists( 'filter_input_array' ) ) {
 			'rules'  => array(
 				'filter'  => FILTER_CALLBACK,
 				'options' => function ( $var ) {
-					return filter_var( $var, FILTER_SANITIZE_SPECIAL_CHARS );
+					return $var;
+					// return filter_var( $var, FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 				},
 			),
-			'search' => FILTER_SANITIZE_SPECIAL_CHARS,
+			'search' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
 		)
 	);
 } else {

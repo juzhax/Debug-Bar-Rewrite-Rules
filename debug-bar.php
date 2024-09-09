@@ -28,6 +28,8 @@ class Debug_Bar_Rewrite_Rules_Panel extends Debug_Bar_Panel {
 	 */
 	private $parent;
 
+	public $_visible;
+
 	/**
 	 * Give the panel a title and set the enqueues.
 	 *
