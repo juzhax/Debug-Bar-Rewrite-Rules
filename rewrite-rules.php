@@ -104,6 +104,9 @@ class UA_Made_Rewrite_Rules {
 	 */
 	public $title;
 
+	private $initialized;
+
+	private $pagetitle;
 
 	/**
 	 * Get Instance.
@@ -468,7 +471,7 @@ class UA_Made_Rewrite_Rules {
 	public function ajax() {
 
 		$return = array();
-		$nonce  = filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING );
+		$nonce  = filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_SPECIAL_CHARS );
 
 		$has_valid_nonce = wp_verify_nonce( $nonce, 'debug-bar-rewrite-rules-nonce' );
 
